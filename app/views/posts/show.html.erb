@@ -175,63 +175,54 @@
 		            	<% end %>
 
 
+						<% if post.galleries.present? %>
+						<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+						    <% post.galleries.each do |gallery| %>    
+						    <% unless gallery.images.empty? %>
+						    <h4><i class="fa fa-photo"></i> <%= gallery.title %></h4>
+						  <!-- Wrapper for slides -->
+						    <div class="carousel-inner">
 
+						        <% gallery.images.each_with_index do |pic, i| %>
+						        <% if i == 0 %>
+						        <div class="item active">
+						            <%= image_tag pic.image.url :large %>
+						        </div>
+						     	<% else %>
+						        <div class="item">
+						            <%= image_tag pic.image.url :large %>
+						        </div>
+						     	<% end %>
+						        <% end %>
 
+						    </div>
+						    <% end %>
+						    <% end %>
+						  <!-- Left and right controls -->
+						    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						        <span class="glyphicon glyphicon-chevron-left"></span>
+						        <span class="sr-only">Previous</span>
+						    </a>
+						    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+						        <span class="glyphicon glyphicon-chevron-right"></span>
+						        <span class="sr-only">Next</span>
+						    </a>
 
-					<% if post.galleries.present? %>
-					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-					    <% post.galleries.each do |gallery| %>    
-					    <% unless gallery.images.empty? %>
-					    <h4><i class="fa fa-photo"></i> <%= gallery.title %></h4>
-					  <!-- Wrapper for slides -->
-					    <div class="carousel-inner">
+						</div>                    
+						<% end %>
 
-					        <% gallery.images.each_with_index do |pic, i| %>
-					        <% if i == 0 %>
-					        <div class="item active">
-					            <%= image_tag pic.image.url :large %>
-					        </div>
-					     	<% else %>
-					        <div class="item">
-					            <%= image_tag pic.image.url :large %>
-					        </div>
-					     	<% end %>
-					        <% end %>
-
-					    </div>
-					    <% end %>
-					    <% end %>
-					  <!-- Left and right controls -->
-					    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-					        <span class="glyphicon glyphicon-chevron-left"></span>
-					        <span class="sr-only">Previous</span>
-					    </a>
-					    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-					        <span class="glyphicon glyphicon-chevron-right"></span>
-					        <span class="sr-only">Next</span>
-					    </a>
-
-					</div>                    
-					<% end %>
-
-
-
-		            </div>
+			        </div>
 
 
 				</div>
-				   <% end %>				
+				<% end %>				
             </div><!-- / col-sm-8 col-md-9 -->
             <!-- / post content area -->
 
             <!-- post sidebar area -->
             <div class="col-sm-4 col-md-3 sidenav">
 				<div class="" style="position:fixed;overflow-y: hidden;">
-					<h5>Meny for <%= @post.title %></h5>
-					<% all_children = @post.descendants.arrange %>
-					<% #all_children = @post.siblings.arrange %>
-					<% #@posts = Post.where({}).arrange %>
-					<% #@posts = Post.where({:category_id => params[:cat]}).arrange %>
+					<% all_children = @post.subtree.arrange %>
 					<%= arranged_tree_as_list(all_children, {:list_style => :bootstrap_list_group}) do |post| %>
 				    <span class="link-to">
 				    	<a href="#section-<%=post.id%>"><%= post.title %></a>				   

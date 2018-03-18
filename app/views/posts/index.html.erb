@@ -12,8 +12,9 @@
 		<h5>
 			<%=  link_to post_path(post) do  %>
 				<%= image_tag post.image.url(:medium) if post.image? %>
+				<p style="margin-top:10px;"><%= post.title %></p>
 			<% end %>
-			<%= post.title %>
+			
 		</h5>
 
 		<% if Setting.tag_visible? %>
