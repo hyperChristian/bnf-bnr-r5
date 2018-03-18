@@ -128,9 +128,7 @@
 
 
 				<% all_children = @post.descendants.arrange %>
-				<% #all_children = @post.siblings.arrange %>
-				<% #@posts = Post.where({}).arrange %>
-				<% #@posts = Post.where({:category_id => params[:cat]}).arrange %>
+
 				<%= arranged_tree_as_list(all_children, {:list_style => :bootstrap_list_group}) do |post| %>
 
 				<div  id="section-<%= post.id %>" class="row" style="margin: 50px 0 10px 20px;background-color: #e3edef;padding:40px;">
@@ -222,8 +220,8 @@
             <!-- post sidebar area -->
             <div class="col-sm-4 col-md-3 sidenav">
 				<div class="" style="position:fixed;overflow-y: hidden;">
-					<% all_children = @post.subtree.arrange %>
-					<%= arranged_tree_as_list(all_children, {:list_style => :bootstrap_list_group}) do |post| %>
+					<% all_subs = @post.subtree.arrange %>
+					<%= arranged_tree_as_list(all_subs, {:list_style => :bootstrap_list_group}) do |post| %>
 				    <span class="link-to">
 				    	<a href="#section-<%=post.id%>"><%= post.title %></a>				   
 				    </span>

@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
     if params[:tag]
-      @posts = Post.filter_by_tags(params[:tag]).page(params[:page]).per(Setting.post_per_page)
+      #@posts = Post.filter_by_tags(params[:tag]).page(params[:page]).per(Setting.post_per_page)
+      @posts = Post.filter_by_tags(params[:tag])
      # @mytags = "tags!!!"
     elsif
 
