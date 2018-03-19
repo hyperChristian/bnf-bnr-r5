@@ -19,14 +19,17 @@ module ApplicationHelper
 	def selection_type_icon stype
 		case stype
 		when 1
-		  "<div class='accordion-icon-holder video block'><i class='fa fa-question'></i></div>"
+		  zicon = "wrench" 
 		when 2
-		   "<div class='accordion-icon-holder links block'><i class='fa fa-link'></i></div>"
+		  zicon = "link"  
 		when 3
-			 "<div class='accordion-icon-holder video block'><i class='fa fa-film'></i></div>"
+			zicon = "videocam" 
+		when 4
+			zicon = "file-text" 
 		else
-		    "<div class='accordion-icon-holder video block'><i class='fa fa-arrow-right'></i></div>"
+		   	zicon = "chevron-left" 
 		end
+		"<span class='ms-icon ms-icon-circle ms-icon-xlg color-info-#{stype}'><i class='zmdi zmdi-#{zicon}'></i></span>"
 	end
 
 end

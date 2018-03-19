@@ -6,9 +6,7 @@
 <div class="row clearfix">
 <% @posts.each do |post| %>
 	<div class="col-lg-3" >
-		<div style="min-height:500px;overflow:hidden;">
-
-		
+		<div style="min-height:500px;overflow:hidden;">		
 		<h5>
 			<%=  link_to post_path(post) do  %>
 				<%= image_tag post.image.url(:medium) if post.image? %>
