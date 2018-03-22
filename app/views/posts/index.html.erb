@@ -1,33 +1,36 @@
 
 <%#= link_to 'All Posts', posts_path %>
 
-
-<% if @posts.present? %>
 <div class="row clearfix">
-<% @posts.each do |post| %>
+
+	<% if @posts.present? %>
+
+	<% @posts.each do |post| %>
 	<div class="col-lg-3" >
-		<div style="min-height:500px;overflow:hidden;">		
-		<h5>
-			<%=  link_to post_path(post) do  %>
-				<%= image_tag post.image.url(:medium) if post.image? %>
-				<p style="margin-top:10px;"><%= post.title %></p>
-			<% end %>
-			
-		</h5>
+		<div class="card mb-4 box-shadow">
+		    <%=  link_to post_path(post) do  %>
+				<%= image_tag post.image.url(:medium) if post.image? %>  
+			<% end %>          
+			<div class="card-body">
+			  <p class="card-text"><%= post.title %></p>
+			  <div class="d-flex justify-content-between align-items-center">
+			    <div class="btn-group">
 
-		<% if Setting.tag_visible? %>
-			<div>
-				<% post.tags.each do |tag| %>
-					<%= link_to tag.name, posts_path(tag: tag.name), :class => 'tag' %>
+				<% if Setting.tag_visible? %>
+					<div>
+						<% post.tags.each do |tag| %>
+							<%= link_to tag.name, posts_path(tag: tag.name), :class => 'btn btn-xs btn-tag' %>
+						<% end %>
+					</div>
 				<% end %>
+			    </div>
+			    <small class="text-muted"></small>
+			  </div>
 			</div>
-		<% end %>
-
 		</div>
 	</div>
-<% end %>
-
+	<% end %>
+	<% end %>
 </div>
-<% end %>
 
 

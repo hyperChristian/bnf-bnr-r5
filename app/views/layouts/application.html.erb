@@ -46,7 +46,7 @@
     <!-- / nav -->
 
     <!-- header-banner -->
-    <div id="header-banner">
+    <div id="header-banner" class="row hidden-sm">
         <div class="banner-content single-page text-center">
             <div class="banner-info">
                 <h1>Hva søker du etter?</h1>
@@ -54,6 +54,10 @@
             </div><!-- / banner-info -->
         </div><!-- / banner-content -->
     </div>
+    <div class="row banner-info hidden-lg hidden-md">
+        <h1>Hva søker du etter?</h1>
+        <p><%= render 'search', route: posts_path %></p>
+    </div><!-- / 
     <!-- / header-banner -->
 </header>
 <!-- / header -->

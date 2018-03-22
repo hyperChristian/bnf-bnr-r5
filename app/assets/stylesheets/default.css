@@ -84,6 +84,12 @@ p {
   color: #ebebeb;
 }
 
+p.card-text{
+  margin-top:10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 ul {
   /*list-style: none;*/
   padding: 0;
@@ -131,6 +137,12 @@ li {
 
 .breadcrumbs {
   margin-left:10px;
+}
+
+.img-border {
+  /*box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);*/
+  /*border:5px solid #dedede;*/
+  
 }
 
 blockquote {
@@ -499,11 +511,6 @@ input:focus {
   font-weight: 400;
   font-size: 13px;
   letter-spacing: 0.05em;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   border-radius: 0;
   padding: 14px 18px;
   margin: 0;
@@ -529,7 +536,7 @@ input:focus {
 
 .btn-sm {
   font-size: 12px;
-  padding: 8px 14px;
+  padding: 4px 14px;
 }
 
 .btn-xs {
@@ -632,30 +639,32 @@ a.btn {
 /* / End Primary Button */
 /* Success Button */
 .btn-success, .btn-success:active, .btn-success:focus {
-  color: #93bc49;
-  border: 2px solid #93bc49;
-  background: transparent;
+  color: #ffffff;
+ 
+  background: #93bc49;
 }
 
 .btn-success:hover {
   color: white;
   background: #93bc49;
-  border: 2px solid #93bc49;
+ 
 }
 
 .btn-success-filled, .btn-success-filled:active, .btn-success-filled:focus {
   color: white;
   background: #93bc49;
-  border: 2px solid #93bc49;
+  
 }
 
 .btn-success-filled:hover {
   color: white;
   background: #7ea03f;
-  border: 2px solid #7ea03f;
+ 
 }
 
 /* / End Success Button */
+
+
 /* Info Button */
 .btn-info, .btn-info:active, .btn-info:focus {
   color: #54bedc;
@@ -734,6 +743,31 @@ a.btn {
 }
 
 /* / End Danger Button */
+/* tag Button */
+.btn-tag, .btn-tag:active, .btn-tag:focus {
+  color: #ffffff;
+ 
+  background: #3f6189;
+}
+
+.btn-tag:hover {
+  color: white;
+  background: #3f6189;
+ 
+}
+
+.btn-tag-filled, .btn-tag-filled:active, .btn-tag-filled:focus {
+  color: white;
+  background: #3f6189;
+  
+}
+
+.btn-tag-filled:hover {
+  color: white;
+  background: #3f6189;
+ 
+}
+/* / End Tag Button */
 /* Button Groups */
 .btn-group-xl > .btn {
   font-size: 20px;

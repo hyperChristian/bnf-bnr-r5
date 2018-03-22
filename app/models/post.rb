@@ -24,7 +24,7 @@ class Post < ApplicationRecord
 	mount_uploader :image, ImageUploader
 
   	def self.matching_title_or_content search
-  		where("title LIKE ? OR content LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+  		where("title ILIKE ? OR content ILIKE ?", "%#{search}%", "%#{search}%")
   		#includes(:sections).where("title LIKE ? OR content LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
   	end
 

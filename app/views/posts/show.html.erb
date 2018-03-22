@@ -12,7 +12,7 @@
     <section id="blog">
         <div class="row">
             <!-- post content area -->
-            <div class="col-sm-8 col-md-9">
+            <div class="col-md-9">
                 <div class="blog block post-content-area">
                 	<p class="breadcrumbs" aria-label="breadcrumb">
 	                   <% all_parents = @post.ancestors %>
@@ -21,17 +21,18 @@
 						<% end %>
 					</p>
                     <div class="post-info-box">
-                    	<div class="row"><div class="col-md-12"><h3><%= @post.title %></h3></div></div>
                     	<div class="row">
-                    		
-	                        <div class="col-md-8">
-	                        	
-	                        	<%= @post.content.html_safe %>  	
-	                        </div>
-				    		<div class="col-md-4">
-				    			<p><%= image_tag @post.image_url(:large) if @post.image?%></p>
+                    		<div class="col-md-12"><h3><%= @post.title %></h3></div></div>
+	                    		<div class="row">
+	                    		
+		                        <div class="col-md-8">
+		                        	
+		                        	<%= @post.content.html_safe %>  	
+		                        </div>
+					    		<div class="col-md-4">
+					    			<p><%= image_tag @post.image_url(:large), :class => 'img-border' if @post.image?%></p>
 
-				    		</div>				    		                       
+					    		</div>				    		                       
                         </div>
 
                         <!-- sections content area -->
@@ -137,7 +138,8 @@
 				    <div class="content-bn" style="">
 
 
-                	<div class="row"><div class="col-md-12"><%= link_to post_path(post) do %><h3><%= post.title %></h3><% end %></div></div>
+                	<div class="row"><div class="col-md-12">
+                		<%= link_to post_path(post) do %><h3><%= post.title %></h3><% end %></div></div>
                 	<div class="row">
                 		
                         <div class="col-md-7">
@@ -145,7 +147,7 @@
                         	<%= post.content.html_safe %>  	
                         </div>
 			    		<div class="col-md-5">
-			    			<p><%= image_tag post.image.url(:large) if post.image?%></p>
+			    			<p><%= image_tag post.image.url(:large), :class => 'img-border' if post.image?%></p>
 
 			    		</div>				    		                       
                     </div>
@@ -226,7 +228,7 @@
             <!-- / post content area -->
 
             <!-- post sidebar area -->
-            <div class="col-sm-4 col-md-3">            	
+            <div class="col-md-3 hidden-sm hidden-xs hidden-print">            	
             	<div data-spy="affix" data-offset-top="150" data-offset-bottom="70" class="bs-docs-sidebar affix">	
 					<% all_subs = @post.subtree.arrange %>
 					<%= arranged_tree_as_list(all_subs, {:list_style => :bootstrap_list_group}) do |post| %> 

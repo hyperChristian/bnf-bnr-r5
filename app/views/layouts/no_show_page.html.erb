@@ -1,0 +1,250 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>BOKAS NETTRESSURS</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div id="top"></div>
+
+<div id="navbar" class="navbar navbar-default navbar-static-top hidden-print">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="zmdi zmdi-menu"></i>
+            </button>
+            <a class="navbar-brand" href=".">BOKAS<strong>NETTRESSURS</strong></a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden-sm "><a href="index.html">Get Started</a></li>
+                <li class="active"><a href="icons.html">Icons</a></li>
+                <li class="dropdown-split-left"><a href="examples.html">Examples</a></li>
+                <li class="dropdown dropdown-split-right hidden-xs">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="examples.html">Examples</a></li>
+                        <li class="divider"></li>
+                        <li><a href="examples.html#basic">Basic Icons</a></li>
+                        <li><a href="examples.html#larger">Larger Icons</a></li>
+                        <li><a href="examples.html#fixed-width">Fixed Width</a></li>
+                        <li><a href="examples.html#list-icons">List Icons</a></li>
+                        <li><a href="examples.html#bordered-pulled">Bordered &amp; Pulled Icons</a></li>
+                        <li><a href="examples.html#spinning">Spinning Icons</a></li>
+                        <li><a href="examples.html#rotated-flipped">Rotated &amp; Flipped Icons</a></li>
+                        <li><a href="examples.html#stacked-icons">Stacked Icons</a></li>
+                        <li><a href="examples.html#colored-icons">Colored Icons</a></li>
+                        <li><a href="examples.html#animated-icons">Animated Icons</a></li>
+                    </ul>
+                </li>
+                <li><a href="cheatsheet.html">Cheatsheet</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-img hidden-print">
+    <div class="container">
+        <div class="col-xs-12">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <p class="breadcrumbs" aria-label="breadcrumb">
+           <% all_parents = @post.ancestors %>
+            <% all_parents.each do |ancestor| %>
+                <%=  link_to ancestor.title, post_path(ancestor.id), :class => 'breadcrumb-item' %> /
+            <% end %>
+        </p>
+        <div class="col-md-9 col-xs-12" role="main">
+            <section id="overview">
+                <h2 class="page-header"><%= @post.title %></h2>
+                <div class="text col-sm-8 col-xs-6">
+                    <%= @post.content.html_safe %>
+                </div>
+                <div class="cover col-sm-4 col-xs-6">
+                    <%= image_tag @post.image_url(:large) if @post.image?%>
+                </div>
+
+                <!--  panel sections-->
+                <% if @post.sections.present? %>                                
+                <% @post.sections.each do |section| %>                
+                <div class="panel-group tabbed">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <a class="panel-title collapsed" data-toggle="collapse" href="#panel<%= section.id %>" aria-expanded="false">
+                                <div class="ms-list-icon">
+                                    <%= selection_type_icon(section.sectiontype).html_safe %>
+                                </div>
+                                <div class="ms-list-text"><%= section.title %></div>
+                            </a>
+                        </div>
+                        <div id="panel<%= section.id %>" class="panel-collapse collapse" aria-expanded="false">
+                            <div class="panel-body-bnf text-gray">
+                                <%= section.content.html_safe %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+                <!-- / panel sections-->
+
+            </section>
+
+
+            <!-- SUB-TREE -->
+            <% all_children = @post.descendants.arrange %>
+            <%= arranged_as_list(all_children, {:list_style => :bootstrap_list_group}) do |post| %>            
+            <section class="icon-set" id="section-<%= post.id %>">
+                <%= link_to post_path(post) do %><h2 class="page-header"><%= post.title %></h2><% end %>
+                <div class="clearfix">
+                    <div class="text col-sm-8 col-xs-6">
+                        <%= post.content.html_safe %>
+                    </div>
+                    <div class="cover col-sm-4 col-xs-6">
+                        <%= image_tag post.image_url(:large) if post.image?%>
+                    </div>
+                </div>
+                <% if post.sections.present? %>
+                <% post.sections.each do |section| %>
+                <div class="panel-group tabbed">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <a class="panel-title collapsed" data-toggle="collapse" href="#panel<%= section.id %>" aria-expanded="false">
+                                <div class="ms-list-icon">
+                                    <span class="ms-icon ms-icon-circle ms-icon-xlg color-info">
+                                        <%= selection_type_icon(section.sectiontype).html_safe %>
+                                    </span>
+                                </div>
+                                <div class="ms-list-text"><%= section.title %></div>
+                            </a>
+                        </div>
+                        <div id="panel<%= section.id %>" class="panel-collapse collapse" aria-expanded="false">
+                            <div class="panel-body-bnf text-gray">
+                                <%= section.content.html_safe %>
+                            </div>
+                        </div>
+                    </div><!-- / panel -->
+                </div>
+                <% end %>
+                <% end %>
+            </section>
+            <% end %>
+            <!-- / SUB-TREE-->
+
+        </div>
+
+        <div class="col-md-3 hidden-sm hidden-xs hidden-print">
+            <div data-spy="affix" data-offset-top="470" data-offset-bottom="70" class="bs-docs-sidebar" role="complementary">
+
+                <% all_subs = @post.subtree.arrange %>
+                <%= arranged_tree_as_list(all_subs, {}) do |post| %> 
+                        <a href="#section-<%=post.id%>"><i class="zmdi zmdi-caret-left"></i> <%= post.title %></a>
+                <% end %>
+                <a class="back-to-top pull-right" href="#top"><i class="zmdi zmdi-chevron-up"></i> Til toppen</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="container">
+    <div class="col-md-9 col-xs-12">
+
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="iconModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn close" data-dismiss="modal" aria-hidden="true"><i class="zmdi zmdi-close"></i></button>
+                <h4 class="modal-title" id="iconModalLabel">zmdi-bus</h4>
+            </div>
+            <div class="modal-body">
+                <div id="icon-sizes">
+                    <i class="zmdi zmdi-bus zmdi-hc-5x"></i>&nbsp;&nbsp;
+                    <span class="hidden-xs">
+                        <i class="zmdi zmdi-bus zmdi-hc-4x"></i>&nbsp;&nbsp;
+                        <span class="hidden-sm">
+                            <i class="zmdi zmdi-bus zmdi-hc-3x"></i>&nbsp;&nbsp;
+                        </span>
+                        <i class="zmdi zmdi-bus zmdi-hc-2x"></i>&nbsp;
+                    </span>
+                    <i class="zmdi zmdi-bus"></i>
+                </div>
+                <hr />
+                <div id="icon-code">
+                    <p><i class="zmdi">&#xf121</i> · <span class="unicode">Unicode: f121</span></p>
+                    <p class="category">Category: Web Application</p>
+                </div>
+                <hr />
+                <p>After you get <a href="index.html" target="_blank">up and running</a>, you can place Material Design icons just about anywhere with the <code>&lt;i&gt;</code> tag:</p>
+                <div>
+                    <pre class="source" style="display: block;">&lt;i class="zmdi zmdi-bus"&gt;&lt;/i&gt;</pre>
+                </div>
+                <p class="mdt-subhead-2">Looking for more? Check out the <a href="examples.html" target="_blank">examples</a>.</p>
+                <hr />
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function($) {
+        var firstPush = true;
+        var icons = $('.icon');
+        var name = 'bus';
+        icons.on('click', function(e){
+            e.preventDefault();
+            var oldName = name;
+            name = $(this).data('name');
+            var code = $(this).data('code');
+            var category = $(this).parent().parent().find('.page-header').html();
+
+            $('#icon-sizes i').removeClass('zmdi-'+oldName).addClass('zmdi-'+name);
+            $('#iconModal .source').html('&lt;i class="zmdi zmdi-'+name+'"&gt;&lt;/i&gt;');
+
+            $('#icon-code .zmdi').html('&#x'+code);
+            $('#icon-code .unicode').html('Unicode: '+code);
+
+            $('#icon-code .category').html('Category: '+category);
+            $('#iconModalLabel').html('zmdi-'+name);
+
+            if (firstPush) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                firstPush = false;
+            }
+        });
+    })(jQuery);
+</script>
+
+</body>
+</html>

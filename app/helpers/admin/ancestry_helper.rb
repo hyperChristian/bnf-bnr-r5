@@ -51,21 +51,11 @@ module Admin::AncestryHelper
           output << content_tag(:li, capture(object, &block) + arranged_tree_as_list(children, options, &block).html_safe,  :class => li_classes)
         else
           output << content_tag(:li, capture(object, &block), :class => li_classes).html_safe
-          #current_depth = object.depth
         end
-
     end
 
     unless output.blank?
-      
       ul_classes = options[:ul_class]
-      
-  #    if current_depth == 0
-  #      ul_classes += options[:ul_class_top]
-  #    else
-  #      ul_classes += options[:ul_class_children]
-  #    end      
-      
       output = content_tag(options[:list_type], output.html_safe, :class => ul_classes)
     end
     
@@ -132,12 +122,6 @@ module Admin::AncestryHelper
     unless output.blank?
       
       ul_classes = options[:ul_class]
-      
-  #    if current_depth == 0
-  #      ul_classes += options[:ul_class_top]
-  #    else
-  #      ul_classes += options[:ul_class_children]
-  #    end      
       
       output = content_tag(options[:list_type], output.html_safe, :class => ul_classes)
     end

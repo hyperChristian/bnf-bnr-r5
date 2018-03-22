@@ -32,13 +32,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 
 #font awesome
-gem 'font-awesome-sass'
+#gem 'font-awesome-sass'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'rmagick', '~> 2.16'
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 
+gem 'fog'
+gem 'xmlrpc'
 #Adds tree stucture to app
 gem 'ancestry', '~> 2.1'
 
