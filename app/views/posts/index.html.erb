@@ -2,13 +2,11 @@
 <%#= link_to 'All Posts', posts_path %>
 
 <div class="row clearfix">
-<div class="col-lg-4" >
 
-</div>
 	<% if @posts.present? %>
 
 	<% @posts.each do |post| %>
-	<div class="col-lg-2" >
+	<div class="col-lg-3" >
 		<div class="card mb-4 box-shadow">
 		    <%=  link_to post_path(post) do  %>
 				<%= image_tag post.image.url(:medium) if post.image? %>  
@@ -21,7 +19,7 @@
 				<% if Setting.tag_visible? %>
 					<div>
 						<% post.tags.each do |tag| %>
-							<%= link_to tag.name, posts_path(tag: tag.name), :class => 'btn btn-xs btn-tag' %>
+							<%= link_to tag.name, posts_path(tag: tag.name), :class => 'btn btn-tag btn-tag' %>
 						<% end %>
 					</div>
 				<% end %>

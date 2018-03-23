@@ -45,10 +45,6 @@ class Admin::PostsController < Admin::ApplicationController
     @post.documents.build
   end
 
-  def addlink
-    @post.links.build
-  end
-
   def update
     @post = Post.find(params[:id])
     @post.category_id = params[:category_id]

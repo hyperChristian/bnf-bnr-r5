@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     resources :categories
     resources :posts do
       resources :sections
-      post :addlink
     end
     resources :tags, except: [:index]
     resources :galleries
