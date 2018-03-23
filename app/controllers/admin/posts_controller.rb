@@ -43,6 +43,7 @@ class Admin::PostsController < Admin::ApplicationController
     @post.galleries.build
     @post.links.build
     @post.documents.build
+    
   end
 
   def update

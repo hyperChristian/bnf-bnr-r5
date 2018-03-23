@@ -25,6 +25,7 @@ class Post < ApplicationRecord
 
   	def self.matching_title_or_content search
   		where("title ILIKE ? OR content ILIKE ? OR metatags ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+  		
   		#includes(:sections).where("title LIKE ? OR content LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
   	end
 
