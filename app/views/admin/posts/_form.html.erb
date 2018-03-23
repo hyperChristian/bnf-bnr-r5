@@ -44,7 +44,12 @@
 
 							<div class="form-group">
 								<%= f.select :tag_ids, Tag.all.collect {|t| [t.name, t.id]}, {prompt: ''}, multiple: :true, :class => "form-control chosen-select" %>
-							</div>								
+							</div>	
+
+							<div class="form-group">
+								<%= f.label :metatags, :class => "sr-only" %>
+								<%= f.text_area :metatags, :class => "form-control", :placeholder => "Add meta tags" %>
+							</div>															
 
                         </div>
                     </div>
@@ -105,7 +110,8 @@
 								<div class="form-group">
 									<%= l.label :url, :class => "sr-only" %>
 									<%= l.text_field :url, :class => 'form-control', :placeholder => "Url" %>
-								</div>					
+								</div>				
+
 							<% end %>
 
                         </div>
@@ -156,6 +162,12 @@
 					
 						<%= f.label :publish %>
 						<%= f.check_box :publish, :class => ""  %>
+					    
+			    </div>
+			    <div class="panel-body">
+					
+						<%= f.label :showpost %>
+						<%= f.check_box :showpost, :class => ""  %>
 					    
 			    </div>
 			    <div class="panel-footer">

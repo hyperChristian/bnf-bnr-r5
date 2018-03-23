@@ -30,7 +30,7 @@
 		                        	<%= @post.content.html_safe %>  	
 		                        </div>
 					    		<div class="col-md-4">
-					    			<p><%= image_tag @post.image_url(:large), :class => 'img-border' if @post.image?%></p>
+					    			<p><%= image_tag @post.image_url(:medium), :class => 'img-border' if @post.image?%></p>
 
 					    		</div>				    		                       
                         </div>
@@ -53,7 +53,7 @@
 				                    <div id="panel-attachement" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				                        <div class="panel-body-bnf text-gray" style="padding:20px 40px;">
 											<% @post.documents.each do |d| %>
-												<p><i class="fa fa-file"></i> <%= link_to d.title, d.document.url, :target => 'blank' %>
+												<p><i class="zmdi zmdi-attachment-alt"></i> <%= link_to d.title, d.document.url, :target => 'blank' %>
 												</p>
 											<% end %>
 				                        </div>

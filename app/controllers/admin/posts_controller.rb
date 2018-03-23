@@ -45,6 +45,10 @@ class Admin::PostsController < Admin::ApplicationController
     @post.documents.build
   end
 
+  def addlink
+    @post.links.build
+  end
+
   def update
     @post = Post.find(params[:id])
     @post.category_id = params[:category_id]
@@ -74,7 +78,7 @@ class Admin::PostsController < Admin::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:parent_id, :id, :title, :content, :publish, :image, :category_id, :ancestry,
+    params.require(:post).permit(:parent_id, :id, :title, :content, :publish, :image, :category_id, :ancestry, :showpost, :metatags,
                                   tag_ids: [], 
                                   sections_attributes: [:id, :title, :content, :post_id, :sectiontype, :_destroy],
                                   galleries_attributes: [:id, :title, :description],

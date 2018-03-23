@@ -25,7 +25,7 @@ module ApplicationHelper
 		when 3
 			zicon = "videocam" 
 		when 4
-			zicon = "file-text" 
+			zicon = "attachment-alt" 
 		else
 		   	zicon = "chevron-left" 
 		end

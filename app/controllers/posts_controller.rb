@@ -12,14 +12,16 @@ class PostsController < ApplicationController
    # @mytags = "search!!!"
     else
      # @posts = Post.all.order(created_at: :desc).page params[:page]
-      @posts = Post.all.where(:publish => true).order(:id => :asc, ancestry: :desc)
+      @posts = Post.all.where(:publish => true, :showpost => true).order(:id => :asc, ancestry: :desc)
    # @mytags = "index!!!"
     end    
     @categories = Category.all
+
   end
 
   def show
     @post = Post.find(params[:id])
     render :layout => 'show_page'
   end
+
 end

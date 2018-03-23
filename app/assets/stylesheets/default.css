@@ -1034,6 +1034,12 @@ a.btn {
   color:red;
 }
 
+.panel-body-bnf p a:before{
+  font-family: "Material-Design-Iconic-Font";
+  padding-right:5px;
+  content:'\f18e';
+}
+
 .panel-group.tabbed .panel-heading {
   background: #ffffff;
   padding: 10px 15px;
@@ -1081,6 +1087,10 @@ border-bottom: 1px solid #ddd;
     color: #fff!important;
     background: #e67e22;
 }
+.ms-icon.color-info-4 {
+    color: #fff!important;
+    background: #54CC14;
+}
 .ms-icon {
     width: 40px;
     height: 40px;
@@ -1090,6 +1100,7 @@ border-bottom: 1px solid #ddd;
     text-align: center;
 }
 .ms-list-text {
+    width:90%;
     display: table-cell;
     vertical-align: middle;
     font-size: 14px;

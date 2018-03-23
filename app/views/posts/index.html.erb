@@ -2,11 +2,13 @@
 <%#= link_to 'All Posts', posts_path %>
 
 <div class="row clearfix">
+<div class="col-lg-4" >
 
+</div>
 	<% if @posts.present? %>
 
 	<% @posts.each do |post| %>
-	<div class="col-lg-3" >
+	<div class="col-lg-2" >
 		<div class="card mb-4 box-shadow">
 		    <%=  link_to post_path(post) do  %>
 				<%= image_tag post.image.url(:medium) if post.image? %>  
