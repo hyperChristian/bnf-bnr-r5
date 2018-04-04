@@ -1,6 +1,6 @@
 class Admin::SectionsController < Admin::ApplicationController
   def index
-  	@sections = Section.order(:id :asc)
+  	@sections = Section.order(:id asc)
 
   end
 
@@ -28,4 +28,5 @@ class Admin::SectionsController < Admin::ApplicationController
 
     redirect_to :back, notice: 'Section was successfully deleted'	
   end  
+
 end
