@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
       params[:search].present?
       @posts = Post.matching_title_or_content(params[:search])  
+      #render :layout => 'search_page'
      # @posts = Post.published.page(params[:page]).per(Setting.post_per_page)
    # @mytags = "search!!!"
     else
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
    # @mytags = "index!!!"
     end    
     @categories = Category.all
+  
 
   end
 

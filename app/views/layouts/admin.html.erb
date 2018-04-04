@@ -36,35 +36,49 @@
                 </li>
 
                 <li>
-                    <%= link_to 'Dashboard', admin_dashboard_index_path %>
+                    <%= link_to admin_dashboard_index_path do %>
+                        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+                    <% end %>
                 </li>
                 <li>
-                    <%= link_to 'Settings', new_admin_setting_path %>
+                    <%= link_to new_admin_setting_path do %>
+                        <i class="zmdi zmdi-settings"></i> Settings
+                    <% end %>
                 </li>
                 <li>
-                    <%= link_to 'Moderators', admin_moderators_path %>
+                    <%= link_to admin_moderators_path do %>
+                        <i class="zmdi zmdi-accounts"></i> Accounts
+                    <% end %>
                 </li>
                 <li>
-                    <%= link_to 'Categories', admin_categories_path %>
+                    <%= link_to admin_categories_path do %>
+                        <i class="zmdi zmdi-folder"></i> Categories
+                    <% end %>
                 </li>                
                 <li>
                 	<%= link_to admin_posts_path(:cat => '1') do %>
-                        <i class='fa fa-list'></i>VG1
+                        <i class="zmdi zmdi-view-list"></i> VG1
                     <% end %>
                     <%= link_to admin_posts_path(:cat => '2') do %>
-                        <i class='fa fa-list'></i>VG2
+                        <i class="zmdi zmdi-view-list"></i> VG2
                     <% end %>
                     <%= link_to admin_posts_path(:cat => '3') do %>
-                        <i class='fa fa-list'></i>VG3
+                        <i class="zmdi zmdi-view-list"></i> VG3
                     <% end %>
                     <%= link_to admin_posts_path(:cat => '4') do %>
-                        <i class='fa fa-list'></i>Andre fagbøker
+                        <i class="zmdi zmdi-view-list"></i> Andre fagbøker
                     <% end %>                                                            
                 </li>
                 <li>
-                	<%= link_to 'Tags', new_admin_tag_path %>
+                	<%= link_to new_admin_tag_path do %>
+                        <i class="zmdi zmdi-tag"></i> Tags
+                    <% end %>
                 </li>   
-                <li><%= link_to 'Galleries', admin_galleries_path %></li> 
+                <li>
+                    <%= link_to admin_galleries_path do %>
+                        <i class="zmdi zmdi-collection-image-o"></i> Galleries
+                    <% end %>
+                </li> 
 
             </ul>
 

@@ -90,6 +90,18 @@ p.card-text{
   font-weight: 400;
 }
 
+.featured-bg-gradient {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.07) 11%, rgba(0,0,0,0.19) 24%, rgba(0,0,0,0.69) 64%, rgba(0,0,0,0.85) 79%, rgba(0,0,0,0.97) 93%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.07) 11%,rgba(0,0,0,0.19) 24%,rgba(0,0,0,0.69) 64%,rgba(0,0,0,0.85) 79%,rgba(0,0,0,0.97) 93%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.07) 11%,rgba(0,0,0,0.19) 24%,rgba(0,0,0,0.69) 64%,rgba(0,0,0,0.85) 79%,rgba(0,0,0,0.97) 93%,rgba(0,0,0,1) 100%);
+}
+
 ul {
   /*list-style: none;*/
   padding: 0;
@@ -1027,17 +1039,17 @@ a.btn {
 }
 
 .panel-group .panel-body {
-  padding: 15px 0;
+  padding: 15px 15px 15px 15px;
 }
 
-.panel-group .panel-body a {
-  color:red;
+.panel-group .panel-body p > a {
+  color:#e74c3c;
 }
 
-.panel-body-bnf p a:before{
+.panel-body p a:before{
   font-family: "Material-Design-Iconic-Font";
-  padding-right:5px;
-  content:'\f18e';
+  padding-right:10px;
+  content:'\f2fb';
 }
 
 .panel-group.tabbed .panel-heading {
@@ -1069,8 +1081,8 @@ border-bottom: 1px solid #ddd;
 .ms-icon.ms-icon-xlg {
     width: 40px;
     height: 40px;
-    line-height: 40px;
-    font-size: 20px;
+    line-height: 42px;
+    font-size: 22px;
 }
 .ms-icon.ms-icon-circle {
     border-radius: 50%;
@@ -1089,7 +1101,7 @@ border-bottom: 1px solid #ddd;
 }
 .ms-icon.color-info-4 {
     color: #fff!important;
-    background: #54CC14;
+    background: #e74c3c;
 }
 .ms-icon {
     width: 40px;
@@ -1100,7 +1112,7 @@ border-bottom: 1px solid #ddd;
     text-align: center;
 }
 .ms-list-text {
-    width:90%;
+    width:400px;
     display: table-cell;
     vertical-align: middle;
     font-size: 14px;

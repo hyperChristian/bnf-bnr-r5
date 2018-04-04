@@ -11,8 +11,6 @@ class Post < ApplicationRecord
   	belongs_to :category
 
   	validates :title, presence: true
-  	#validates :content, presence: true #, uniqueness: {case_sensitive: false}
-  	#validates :category_id, presence: true
 
 	scope :published, -> { where(publish: true).order(id: :desc) }
 
@@ -24,9 +22,7 @@ class Post < ApplicationRecord
 	mount_uploader :image, ImageUploader
 
   	def self.matching_title_or_content search
-  		where("title ILIKE ? OR content ILIKE ? OR metatags ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
-  		
-  		#includes(:sections).where("title LIKE ? OR content LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+  		where("publish=true AND title ILIKE ? OR content ILIKE ? OR metatags ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   	end
 
   	def self.filter_by_tags param_tag

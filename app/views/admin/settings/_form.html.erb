@@ -1,19 +1,54 @@
-<%= form_for [:admin, @setting] do |f| %>
-	<p>
-		<%= f.label :site_name %><br>
-		<%= f.text_field :site_name %>
-	</p>
-	<p>
-		<%= f.label :post_per_page %><br>
-		<%= f.number_field :post_per_page %>
-	</p>
-	<p>
-		<%= f.label :under_maintenance %><br>
-		<%= f.check_box :under_maintenance %>
-	</p>
-	<p>
-		<%= f.label :tag_visibility %><br>
-		<%= f.select :tag_visibility, [['active', true], ['disable', false]] %>
-	</p>
-	<p><%= f.submit %></p>
+<%= form_for [:admin, @setting], remote: true do |f| %>
+
+<div class="tabs-container">
+	<ul class="nav nav-tabs">
+	    <li class="active"><a data-toggle="tab" href="#tab-3" aria-expanded="true"> <i class="zmdi zmdi-home"></i></a></li>
+	    <li class=""><a data-toggle="tab" href="#tab-4" aria-expanded="false"><i class="zmdi zmdi-rss"></i></a></li>
+	    <li class=""><a data-toggle="tab" href="#tab-5" aria-expanded="false"><i class="zmdi zmdi-view-stream"></i></a></li>
+	</ul>
+	<div class="tab-content">
+	    <div id="tab-3" class="tab-pane active">
+	        <div class="panel-body">
+				<div class="col-md-2 form-group">
+					<%= f.label :site_name %>
+				</div>
+				<div class="col-md-10 form-group">
+					<%= f.text_field :site_name, :class => 'form-control' %>
+				</div>
+				<div class="col-md-2 form-group">
+					<%= f.label :post_per_page %>
+				</div>
+				<div class="col-md-10 form-group">
+					<%= f.number_field :post_per_page, :class => 'form-control' %>
+				</div>			
+				<div class="col-md-2 form-group">
+					<%= f.label :under_maintenance %>
+				</div>
+				<div class="col-md-10 form-group">
+					<%= f.check_box :under_maintenance, :class => 'form-control' %>
+				</div>
+				<div class="col-md-2 form-group">
+					<%= f.label :tag_visibility %>
+				</div>
+				<div class="col-md-10 form-group">
+					<%= f.select :tag_visibility, [['active', true], ['disable', false]], :class => 'form-control' %>
+				</div>	
+								
+	        </div>
+	    </div>
+	    <div id="tab-4" class="tab-pane">
+	        <div class="panel-body">
+
+	        </div>
+	    </div>
+	    <div id="tab-5" class="tab-pane">
+	        <div class="panel-body">
+
+	        </div>
+	    </div>
+	</div>
+
+</div>
+<p></p>
+<div class="form-group"><%= f.submit :class => 'btn btn-md btn-primary' %></div>
 <% end %>

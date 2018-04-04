@@ -4,7 +4,7 @@ module Admin::AncestryHelper
   def arranged_tree_as_list(hash, options = {}, &block)
 
     options = {
-      :list_type            => :ul,
+      :list_type            => :ol,
       :list_style           => '', 
       :ul_class             => [],
       :ul_class_top         => [],
@@ -22,7 +22,8 @@ module Admin::AncestryHelper
       when :bootstrap_list_group
        # options[:ul_class] << ['list-group']
        # options[:li_class] << ['list-group-item']
-
+       options[:ul_class_top] << ['dd-list-top']
+       options[:li_class_top] << ['dd-item-top']
        options[:ul_class] << ['dd-list']
        options[:li_class] << ['dd-item']        
     end

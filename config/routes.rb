@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:index, :create, :destroy]
     resources :moderators, only: [:index, :edit, :update]
     resources :uploads, only: [:create, :destroy]
+    resources :documents, only: [:destroy]
 
   end
 

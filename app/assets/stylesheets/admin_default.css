@@ -1,11 +1,34 @@
 
 
+.dd-list-top:before {
+  font-family: Material-Design-Iconic-Font;
+  content:"\f320";
+  position: absolute;
+  left:0;
+  padding-left: 20px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.dd-container .my-link:hover .my-edit-link{
+  opacity: 1;
+}
+
+.dd-container:hover  {
+  opacity: 1;
+  background-color: #f0f0f0;
 
 
-.dd-container {
+}
+
+.dd-container:hover .action-buttons{
+  opacity: 1;
+}
+
+.dd-container{
     position: relative;
     width:100%;
-    padding:5px;
+    padding:5px 5px 5px 15px;
 }
 
 .link-to {
@@ -18,10 +41,9 @@
 }
 
 
-
 #image-holder img {
-	vertical-align: middle;
-	width: 100%;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .action-buttons {
@@ -35,23 +57,10 @@
   text-align: center;
 }
 .my-edit-link{
-	opacity:0;
-	position: absolute;
-	margin-left: 20px;
+  opacity:0;
+  position: absolute;
+  margin-left: 20px;
 
-}
-.dd-container .my-link:hover .my-edit-link{
-  opacity: 1;
-}
-
-.dd-container:hover  {
-  opacity: 1;
-  background-color: #f0f0f0;
-
-}
-
-.dd-container:hover .action-buttons{
-  opacity: 1;
 }
 
 .text {

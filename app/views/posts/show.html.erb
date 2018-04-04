@@ -1,13 +1,3 @@
-<style>
- 
-
-
-.affixm {
-    top: 150px;
-    z-index: 9999 !important;
-  }
-
-</style>
     <!-- post content + sidebar -->
     <section id="blog">
         <div class="row">
@@ -51,7 +41,7 @@
 				                        </a>
 				                    </div>
 				                    <div id="panel-attachement" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-				                        <div class="panel-body-bnf text-gray" style="padding:20px 40px;">
+				                        <div class="panel-body text-gray" style="padding:20px 40px;">
 											<% @post.documents.each do |d| %>
 												<p><i class="zmdi zmdi-attachment-alt"></i> <%= link_to d.title, d.document.url, :target => 'blank' %>
 												</p>
@@ -61,6 +51,7 @@
 			                    </div><!-- / panel -->			       
 			                </div>	
 			                <% end %>
+
 			                <% if @post.sections.present? %>								
 							<% @post.sections.each do |section| %>
 							
@@ -75,7 +66,7 @@
 			                        </a>
 			                    </div>
 			                    <div id="panel<%= section.id %>" class="panel-collapse collapse" aria-expanded="false">
-			                        <div class="panel-body-bnf text-gray">
+			                        <div class="panel-body text-gray">
 			                        	<%= section.content.html_safe %>
 			                        </div>
 			                    </div>
@@ -133,96 +124,89 @@
 
 				<%= arranged_as_list(all_children, {:list_style => :bootstrap_list_group}) do |post| %>
 
-				<div  id="section-<%= post.id %>" class="row" style="margin: 50px 0 10px 20px;background-color: #e3edef;padding:40px;">
+				<div  id="section-<%= post.id %>" class="row" style="margin: 50px 0 10px 20px;background-color: #efefef;padding:40px;">
 
-				    <div class="content-bn" style="">
+					<div class="content-bn" style="">
 
-
-                	<div class="row"><div class="col-md-12">
-                		<%= link_to post_path(post) do %><h3><%= post.title %></h3><% end %></div></div>
-                	<div class="row">
-                		
-                        <div class="col-md-7">
-                        	
-                        	<%= post.content.html_safe %>  	
-                        </div>
-			    		<div class="col-md-5">
-			    			<p><%= image_tag post.image.url(:large), :class => 'img-border' if post.image?%></p>
-
-			    		</div>				    		                       
-                    </div>
+	                	<div class="row">
+	                		<div class="col-md-12">
+	                			<%= link_to post_path(post) do %><h3><%= post.title %></h3><% end %></div></div>
+	                			<div class="row">
+	                		
+	                    			<div class="col-md-7">
+	                        			<%= post.content.html_safe %>  	
+	                        		</div>
+				    				<div class="col-md-5">
+				    					<p><%= image_tag post.image.url(:large), :class => 'img-border' if post.image?%></p>
+									</div>				    		                       
+	                    		</div>
 
 
-						<% if post.sections.present? %>
-						<div class="row" style="margin-top: 40px;">
-							
-							<% post.sections.each do |section| %>
-							<div class="panel-group tabbed">
-			                    <div class="panel">
-			                    <div class="panel-heading">
-			                        <a class="panel-title collapsed" data-toggle="collapse" href="#panel<%= section.id %>" aria-expanded="false">
-			                         
-			                         	<div class="ms-list-icon">
-											 <span class="ms-icon ms-icon-circle ms-icon-xlg color-info">
-											   
-											    <%= selection_type_icon(section.sectiontype).html_safe %>
-											</span>
-										</div>
-										<div class="ms-list-text"><%= section.title %></div>
-			                        </a>
-			                    </div>
-			                    <div id="panel<%= section.id %>" class="panel-collapse collapse" aria-expanded="false">
-			                        <div class="panel-body-bnf text-gray">
-			                        	<%= section.content.html_safe %>
-			                        </div>
-			                    </div>
-			                    </div><!-- / panel -->
-			                </div>
-			                <% end %>
-			            </div>
-		            	<% end %>
+			
+
+								<% if post.sections.present? %>
+								<div class="row" style="margin-top: 40px;">									
+									<% post.sections.each do |section| %>
+									<div class="panel-group tabbed">
+					                    <div class="panel">
+					                    	<div class="panel-heading">
+					                        	<a class="panel-title collapsed" data-toggle="collapse" href="#panel<%= section.id %>" aria-expanded="false">
+					                         
+					                         		<div class="ms-list-icon">
+													 	<span class="ms-icon ms-icon-circle ms-icon-xlg color-info">   
+													    	<%= selection_type_icon(section.sectiontype).html_safe %>
+														</span>
+													</div>
+													<div class="ms-list-text"><%= section.title %></div>
+					                        	</a>
+					                    	</div>
+					                    	<div id="panel<%= section.id %>" class="panel-collapse collapse" aria-expanded="false">
+					                        	<div class="panel-body text-gray">
+					                        		<%= section.content.html_safe %>
+					                        	</div>
+					                    	</div>
+					                    </div><!-- / panel -->
+					                </div>
+					                <% end %>
+					            </div>
+				            	<% end %>
 
 
-						<% if post.galleries.present? %>
-						<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-						    <% post.galleries.each do |gallery| %>    
-						    <% unless gallery.images.empty? %>
-						    <h4><i class="fa fa-photo"></i> <%= gallery.title %></h4>
-						  <!-- Wrapper for slides -->
-						    <div class="carousel-inner">
+								<% if post.galleries.present? %>
+								<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+						    		<% post.galleries.each do |gallery| %>    
+						    		<% unless gallery.images.empty? %>
+						    		<h4><i class="fa fa-photo"></i> <%= gallery.title %></h4>
+						  			<!-- Wrapper for slides -->
+						    		<div class="carousel-inner">
+						        		<% gallery.images.each_with_index do |pic, i| %>
+						        		<% if i == 0 %>
+						        		<div class="item active">
+						            		<%= image_tag pic.image.url :large %>
+						        		</div>
+						     			<% else %>
+						        		<div class="item">
+						            		<%= image_tag pic.image.url :large %>
+						        		</div>
+						     			<% end %>
+						        		<% end %>
+									</div>
+						    		<% end %>
+						    		<% end %>
+						 			 <!-- Left and right controls -->
+						    		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						        		<span class="glyphicon glyphicon-chevron-left"></span>
+						        		<span class="sr-only">Previous</span>
+						    		</a>
+						   			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+						        		<span class="glyphicon glyphicon-chevron-right"></span>
+						        		<span class="sr-only">Next</span>
+						    		</a>
+								</div>                    
+								<% end %>
 
-						        <% gallery.images.each_with_index do |pic, i| %>
-						        <% if i == 0 %>
-						        <div class="item active">
-						            <%= image_tag pic.image.url :large %>
-						        </div>
-						     	<% else %>
-						        <div class="item">
-						            <%= image_tag pic.image.url :large %>
-						        </div>
-						     	<% end %>
-						        <% end %>
-
-						    </div>
-						    <% end %>
-						    <% end %>
-						  <!-- Left and right controls -->
-						    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-						        <span class="glyphicon glyphicon-chevron-left"></span>
-						        <span class="sr-only">Previous</span>
-						    </a>
-						    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-						        <span class="glyphicon glyphicon-chevron-right"></span>
-						        <span class="sr-only">Next</span>
-						    </a>
-
-						</div>                    
-						<% end %>
-
-			        </div>
-
-
-				</div>
+			        	</div>
+					</div>
 				<% end %>				
             </div><!-- / col-sm-8 col-md-9 -->
             <!-- / post content area -->

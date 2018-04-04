@@ -2,35 +2,49 @@
 <%#= link_to 'All Posts', posts_path %>
 
 <div class="row clearfix">
-
 	<% if @posts.present? %>
-
 	<% @posts.each do |post| %>
-	<div class="col-lg-3" >
-		<div class="card mb-4 box-shadow">
-		    <%=  link_to post_path(post) do  %>
-				<%= image_tag post.image.url(:medium) if post.image? %>  
-			<% end %>          
-			<div class="card-body">
-			  <p class="card-text"><%= post.title %></p>
-			  <div class="d-flex justify-content-between align-items-center">
-			    <div class="btn-group">
+	<div class="col-lg-3 col-md-4 col-sm-6">
 
-				<% if Setting.tag_visible? %>
-					<div>
+		<div class="card mb-4">
+			<div class="card-body">
+				<%=  link_to post_path(post) do  %>
+					<%= image_tag post.image.url(:medium) if post.image? %>  
+				<% end %> 
+			  	<p class="card-text"><%= post.title %></p>
+			  	<div class="d-flex justify-content-between align-items-center">
+			    	<div class="btn-group">
+						<% if Setting.tag_visible? %>
+						<div>
 						<% post.tags.each do |tag| %>
 							<%= link_to tag.name, posts_path(tag: tag.name), :class => 'btn btn-tag btn-tag' %>
 						<% end %>
 					</div>
 				<% end %>
 			    </div>
-			    <small class="text-muted"></small>
 			  </div>
 			</div>
 		</div>
 	</div>
 	<% end %>
 	<% end %>
+</div>
+
+<div class="row clearfix">
+	<div class="col-md-6">
+	</div>
+	<div class="col-md-6">
+		<h4>Nyheter fra Tekna</h4>
+		<% rss_news('https://bygg.tekna.no/feed/').each do |article| %>
+		<div class="media">
+		  <div class="media-body">
+		    <h5 class="mt-0"><a href="<%= article[:link] %>" target="_blank"><%= article[:title] %></a> </h5>
+		    <small><%= time_ago(article[:date]) %></small>
+		    <p><%= article[:description].html_safe %></p>
+		  </div>
+		</div>
+		<% end %>
+	</div>
 </div>
 
 

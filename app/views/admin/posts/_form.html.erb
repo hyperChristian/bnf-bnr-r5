@@ -3,9 +3,9 @@
 
 		<%= render 'validation_errors', object: @post %>
 
-		<%= form_for [:admin, @post ], html: { multipart: true } do |f| %>
+		<%= form_for [:admin, @post ], html: { :class => 'form-horizontal', multipart: true }, remote: true do |f| %>
 
-		<%= f.hidden_field :parent_id%>
+		<%= f.hidden_field :parent_id %>
 
 		<div class="col-sm-9">
 
@@ -18,12 +18,12 @@
         <div class="panel-body">	
 			<div class="form-group">
 				<%= f.label :title, :class => "sr-only" %>
-				<%= f.text_field :title, :class => 'form-control', :placeholder => "Title" %>
+				<%= f.text_field :title, :class => 'form-control input-lg', :placeholder => "Title" %>
 			</div>		
 			<div class="form-group">
 				<%= f.text_area :content, :class => "summernote" %>
 			</div>
- 			<div><h3>Settings</h3><hr></div>
+ 			<div><h3>Additional fields</h3><hr></div>
             <div class="tabs-container">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Details</a></li>
@@ -57,12 +57,10 @@
                     <div id="tab-2" class="tab-pane">
                         <div class="panel-body">
 							<h4>Sections:</h4>
-
 							<%= f.fields_for :sections do |s| %>
 								<div class="form-group">
 									<%= s.label :sectiontype %>
-									<%= s.text_field :sectiontype %> <span>1 - Oppgave, 2 - Link, 3 - Video</span>
-									
+									<%= s.select :sectiontype, [['Oppgave', '1'], ['Lenker', '2'], ['Video', '3'], ['Tekst', '4']], :class => 'form-control' %>	
 								</div>
 								<div class="form-group">
 									<%= s.label :title, :class => "" %>
@@ -72,9 +70,8 @@
 									<%= s.label :content, :class => "" %>
 									<%= s.text_area :content, :class => 'summernote', 'data-provider': :summernote %>
 								</div>	
-								   <%= s.check_box :_destroy %>
+								   	<%= s.check_box :_destroy %>
       								<%= s.label :_destroy, 'delete' %>
-
 							<% end %>
 						 <%= f.submit 'Delete checked Sections', :name => 'delete_sections' %>
                         </div>
@@ -120,7 +117,6 @@
 
 	                <div id="tab-5" class="tab-pane">
                         <div class="panel-body">
-
 							<h4>Documents:</h4>
 								<%= f.fields_for :documents do |d| %>
 								<div class="form-group">
@@ -128,16 +124,16 @@
 									<div class="col-sm-10">
 										<%= d.text_field :title, :class => 'form-control', :placeholder => "Title" %>
 									</div>
-								</div>	
+								</div>
 								<div class="form-group">
 									<%= d.label :description, :class => "col-sm-2 control-label" %>
 									<div class="col-sm-10">
 										<%= d.text_field :description, :class => 'form-control', :placeholder => "Description" %>
 									</div>
-								</div>									
+								</div>
 								<div class="btn-group">
-									<%= d.label :document, :class => "btn btn-primary block full-width m-b" do %>
-										<%= d.file_field :document, :class => 'hide'%>Upload New Document
+									<%= d.label :document, :class => "btn btn-default block full-width m-b" do %>
+										<%= d.file_field :document, :class => 'hide'%> Velg dokument
 									<% end %>
 								</div>					
 							<% end %>
@@ -159,20 +155,19 @@
 			        <%= f.submit :class => "btn btn-primary btn-block" %>
 			    </div>
 			    <div class="panel-body">
-					
+					<div class="checkbox checkbox-primary">
+						<%= f.check_box :publish, :class => "" %>
 						<%= f.label :publish %>
-						<%= f.check_box :publish, :class => ""  %>
-					    
-			    </div>
-			    <div class="panel-body">
-					
+			    	</div>
+			    	<div class="checkbox checkbox-primary">
+						<%= f.check_box :showpost, :class => "" %>
 						<%= f.label :showpost %>
-						<%= f.check_box :showpost, :class => ""  %>
-					    
+					</div>    
 			    </div>
+
 			    <div class="panel-footer">
 			    	<span class="text-muted small">
-			    		Sist oppdatert: <i class="fa fa-clock-o"></i> <%= @post.updated_at.to_s(:long) if @post.updated_at? %>
+			    		Sist oppdatert: <i class="zmdi zmdi-time"></i> <%= @post.updated_at.to_s(:long) if @post.updated_at? %>
 			    	</span>	
 			    </div>
 			</div>
@@ -186,7 +181,7 @@
 			    </div>
 				<div class="panel-footer">
 						<%= f.label :image, :class => "btn btn-default btn-block" do %>
-							<%= f.file_field :image, :class => 'hide'%><i class="fa fa-upload"></i>  last opp bilde
+							<%= f.file_field :image, :class => 'hide'%><i class="zmdi zmdi-upload"></i>  last opp bilde
 						<% end %>
 					
 				</div>					    
@@ -198,7 +193,9 @@
 			    </div>
 			    <div class="panel-body">
 				<% @post.documents.each do |d| %>
-					<p><i class="fa fa-file"></i> <%=link_to d.title%></p> 
+					<p>
+						<i class="zmdi zmdi-file"></i> <%=link_to d.title%>
+					</p> 
 				<% end %>
 			    </div>
 			    <div class="panel-footer">
@@ -221,7 +218,6 @@
                  ["style", ["style"]],
                  ["style", ["bold", "italic", "underline", "clear"]],
                  ["table", ["table"]],
- 
                  ["color", ["color"]],
                  ["para", ["ul", "ol", "paragraph"]],
                  ['insert', ['link', 'picture', 'videoAttributes']],	

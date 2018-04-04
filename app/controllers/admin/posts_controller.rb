@@ -66,9 +66,7 @@ class Admin::PostsController < Admin::ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
-
-    redirect_to :back, notice: 'Post was successfully deleted'
+    redirect_to admin_posts_url(cat: params[:category_id]), notice: 'Post was successfully deleted'
   end
 
 

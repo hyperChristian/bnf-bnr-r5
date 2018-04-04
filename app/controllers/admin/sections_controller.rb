@@ -1,6 +1,7 @@
 class Admin::SectionsController < Admin::ApplicationController
   def index
-  	@sections = Section.all
+  	@sections = Section.order(:id :asc)
+
   end
 
   def new
