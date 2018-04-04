@@ -30,21 +30,6 @@
 	<% end %>
 </div>
 
-<div class="row clearfix">
-	<div class="col-md-6">
-	</div>
-	<div class="col-md-6">
-		<h4>Nyheter fra Tekna</h4>
-		<% rss_news('https://bygg.tekna.no/feed/').each do |article| %>
-		<div class="media">
-		  <div class="media-body">
-		    <h5 class="mt-0"><a href="<%= article[:link] %>" target="_blank"><%= article[:title] %></a> </h5>
-		    <small><%= time_ago(article[:date]) %></small>
-		    <p><%= article[:description].html_safe %></p>
-		  </div>
-		</div>
-		<% end %>
-	</div>
-</div>
+
 
 
