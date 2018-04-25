@@ -1,20 +1,57 @@
-    <div id="navbar" class="navbar navbar-default navbar-static-top hidden-print">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="zmdi zmdi-menu"></i>
-                </button>
-                <a class="navbar-brand" href=".">BOKAS<strong>NETTRESSURS</strong></a>
-            </div>
+    <div class="navbar navbar-white navbar-static-top" role="navigation">
+      <div class="container">
 
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-sm"><a href=".">Hjem</a></li>
-                    <li><a href=".">Log inn</a></li>
-                    <li><a href=".">Om </a></li>
-                    <li><a href=".">Kontakt</a></li>
-                </ul>
+        <!-- Navbar Header -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><%= image_tag('bnf-logo.png', :style => "width:227px") %></a>
+        </div> <!-- / Navbar Header -->
+
+        <!-- Navbar Links -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/" class="bg-hover-color">Hjem</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle bg-hover-color" data-toggle="dropdown">Om Byggenæringens forlag<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="bg-hover-color">...</a></li>
+                <li><a href="#" class="bg-hover-color">...</a></li>
+                <li><a href="#" class="bg-hover-color">...</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle bg-hover-color" data-toggle="dropdown">HMS <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="bg-hover-color">Sikker bruk av arbeidsutstyr</a></li>
+                <li><a href="#" class="bg-hover-color">Illustrasjonsarkiv</a></li>
+                <li><a href="#" class="bg-hover-color">Grunnopplæring</a></li>
+              </ul>
+            </li>
+            <li class="">
+              <a href="#" class="dropdown-toggle bg-hover-color" data-toggle="dropdown">Kontakt</a>
+            </li>            
+            <li class="">
+                
+                <span class="btn btn-md btn-color" style="margin:20px 0 0 20px;"><a href="http://bnf.rm.no/login.aspx?ReturnUrl=%2f" target="_blank" class="netthandel" style="color:#FFFFFF;">Nettbokhandel</a></span>
+                
+            </li>
+
+          </ul>
+
+          <!-- Search Form (xs) -->
+          <form class="navbar-form navbar-left visible-xs" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
             </div>
-        </div>
-    </div> 
+            <button type="submit" class="btn btn-default">Søk</button>
+          </form> <!-- / Search Form (xs) -->
+
+        </div> <!-- / Navbar Links -->
+      </div> <!-- / container -->
+    </div> <!-- / navbar -->

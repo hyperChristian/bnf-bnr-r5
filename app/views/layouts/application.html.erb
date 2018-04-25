@@ -1,82 +1,170 @@
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Byggenæringens forlag</title>
 
-<head>
-
-    <title>Bokas nettressurs</title>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-
-    
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
-    <!-- include pace script for automatic web page progress bar  -->
-    <script>
-    //    paceOptions = {
-    //        elements: true
-    //    };
-    </script>
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
-<body>
-<!-- preloader -->
+    <!-- CSS Global -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
 
-<!-- / preloader -->
-<!--  flash notice -->
-<% if flash[:notice] %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="body-green">
+
+  <!--  flash notice -->
+  <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-<% if flash[:alert] %>
+  <% end %>
+  <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
-<% end %>
-<!-- / flash notice -->
-<!-- header -->
-<header>
-    <!-- nav -->
-<%= render 'nav' %>
-    <!-- / nav -->
+  <% end %>
+  <!-- / flash notice -->
+ 
 
-    <!-- header-banner -->
-    <div id="header-banner" class="row hidden-sm">
-        <div class="banner-content single-page text-center">
-            <div class="banner-info">
-                <h1>Hva søker du etter?</h1>
-                <p><%= render 'search', route: posts_path %></p>
-            </div><!-- / banner-info -->
-        </div><!-- / banner-content -->
-    </div>
-    <div class="row banner-info hidden-lg hidden-md">
-        <h1>Hva søker du etter?</h1>
-        <p><%= render 'search', route: posts_path %></p>
-    </div><!-- / 
-    <!-- / header-banner -->
-</header>
-<!-- / header -->
+  <%= render 'nav' %>
 
-<!-- content -->
-
-<div id="page-content" class="container">
-    <!-- post content + sidebar -->
-    <%= yield %>
-    <!-- /post content + sidebar -->
-</div><!-- / container -->
-
-<!-- / content -->
-
-<!-- footer -->
-<%= render 'footer' %>
-<!-- / footer -->
+    <!-- Wrapper -->
+    <div class="wrapper">
 
 
-</body>
 
+    
+
+    <!-- Jumbotron -->
+      <div class="main-slideshow">
+        <div id="main-slideshow" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide No 1 -->
+            <div class="item active">
+              <div class="jumbotron first">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-6">
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div> <!-- / Slideshow -->
+
+
+ 
+     <!-- Intro Text -->
+      <div class="container intro">
+
+        <!-- Områder -->
+        <h2 class="headline text-color">
+          <span class="border-color">Våre områder</span>
+        </h2>
+        <div class="row portfolio">
+          <div class="col-sm-3">
+            <!-- Område #1 -->
+            <div class="portfolio-item">
+              <a href="http://bnf.rm.no/login.aspx?ReturnUrl=%2f" target="_blank">
+                <%= image_tag ('meny1.jpg'), :class => 'img-responsive' %>  
+                <div class="mask">
+                 Nettbokhandel
+                </div>
+              </a>
+              <div class="portfolio-desc">
+                <h3 class="primary-font">Nettbokhandel</h3>
+                <p class="text-muted">
+                  Bestille bøker her
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <!-- Område #2 -->
+            <div class="portfolio-item">
+              <a href="/posts">
+               <%= image_tag ('meny2.jpg'), :class => 'img-responsive' %>  
+                <div class="mask">
+                  <i class="zmdi zmdi-lock-open"></i> Bokas nettressurs
+                </div>
+              </a>
+              <div class="portfolio-desc">
+                <h3 class="primary-font">Bokas nettressurs</h3>
+                <p class="text-muted">
+                  Et hjelpemiddel for lærere og elever
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <!-- Område #3 -->
+            <div class="portfolio-item">
+              <a href="/">
+                <%= image_tag ('meny3.jpg'), :class => 'img-responsive' %>  
+                <div class="mask">
+                  Digital pedagogikk
+                </div>
+              </a>
+              <div class="portfolio-desc">
+                <h3 class="primary-font">Digital pedagogikk</h3>
+                <p class="text-muted">
+                  Berikede bøker/brettbøker
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <!-- Område #4 -->
+            <div class="portfolio-item">
+              <a href="/">
+                <%= image_tag ('meny4.jpg'), :class => 'img-responsive' %>  
+                <div class="mask">
+                  Helse, miljø og sikkerhet
+                </div>
+              </a>
+              <div class="portfolio-desc">
+                <h3 class="primary-font">HMS</h3>
+                <p class="text-muted">
+                  Sikker bruk av arbeidsutstyr
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- / .row -->
+
+
+
+        <!-- Aktuelt -->
+
+            <%= yield %>
+          
+        </div> <!-- / .row -->
+
+      </div> <!-- / .container -->
+
+    </div> <!-- / .wrapper -->
+
+    <!-- Footer -->
+    <%= render 'footer' %>
+
+    <!-- JavaScript
+    ================================================== -->
+     <%= javascript_include_tag 'application_bottom', 'data-turbolinks-track' => true %>
+     <script type="text/javascript">
+   
+
+     </script>
+  </body>
 </html>

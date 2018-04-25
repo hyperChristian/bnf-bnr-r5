@@ -1,12 +1,10 @@
 class Section < ApplicationRecord
-  belongs_to :post
+  	belongs_to :post
 
+  	scope :ordered, -> { order(id: :asc) }
 
-
-  	def self.matching_title_or_content search
-  		where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
-  	end
-
+  	#test scope
+  	#scope :ordered, -> { where(:title => "Lenker") }
   
 end
 

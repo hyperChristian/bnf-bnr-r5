@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+
+
 	has_ancestry
 	has_many :post_tags, dependent: :destroy
 	has_many :tags, through: :post_tags
@@ -20,6 +22,10 @@ class Post < ApplicationRecord
 	accepts_nested_attributes_for :documents, reject_if: proc { |attributes| attributes[:title].blank? }
 
 	mount_uploader :image, ImageUploader
+
+	def to_param
+    	"#{id} #{title}".parameterize
+  	end
 
   	def self.matching_title_or_content search
   		where("publish=true AND title ILIKE ? OR content ILIKE ? OR metatags ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")

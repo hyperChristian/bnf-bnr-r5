@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
+
+
   def index
+    @categories = Category.where(:categorytype => '2')
     if params[:tag]
       #@posts = Post.filter_by_tags(params[:tag]).page(params[:page]).per(Setting.post_per_page)
       @posts = Post.filter_by_tags(params[:tag])
@@ -16,9 +19,11 @@ class PostsController < ApplicationController
       @posts = Post.all.where(:publish => true, :showpost => true).order(:id => :asc, ancestry: :desc)
    # @mytags = "index!!!"
     end    
-    @categories = Category.all
-  
+    render :layout => 'list_page'
+  end
 
+  def home
+    @articles = Article.all      
   end
 
   def show
@@ -26,4 +31,9 @@ class PostsController < ApplicationController
     render :layout => 'show_page'
   end
 
+  def search_post
+    params[:search].present?
+    @posts = Post.matching_title_or_content(params[:search])  
+    render :layout => 'list_page'
+  end
 end

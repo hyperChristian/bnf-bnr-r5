@@ -3,7 +3,7 @@
 
 		<%= render 'validation_errors', object: @post %>
 
-		<%= form_for [:admin, @post ], html: { :class => 'form-horizontal', multipart: true }, remote: true do |f| %>
+		<%= form_for [:admin, @post ], html: { :class => 'form-horizontal', multipart: true } do |f| %>
 
 		<%= f.hidden_field :parent_id %>
 
@@ -23,32 +23,31 @@
 			<div class="form-group">
 				<%= f.text_area :content, :class => "summernote" %>
 			</div>
- 			<div><h3>Additional fields</h3><hr></div>
+ 			<div><h3>Tilleggsfelter</h3><hr></div>
             <div class="tabs-container">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Details</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">Sections</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab-3" aria-expanded="false">Galleries</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab-4" aria-expanded="false">Links</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab-5" aria-expanded="false">Attachments</a></li>
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Detaljer</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">Seksjoner</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-3" aria-expanded="false">Gallerier</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-4" aria-expanded="false">Oppfordringslenker</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-5" aria-expanded="false">Vedlegg</a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane active">
                         <div class="panel-body">
-
 						
 							<div class="form-group">
 								<%= f.label :category_id, :class => "sr-only" %>
-								<%= f.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {prompt: 'Velg kategori'}, :class => "form-control" %>
+								<%= f.select :category_id, Category.where(:categorytype => '2').collect {|c| [c.name, c.id]}, {prompt: 'Velg kategori'}, :class => "form-control" %>
 							</div>
 
 							<div class="form-group">
-								<%= f.select :tag_ids, Tag.all.collect {|t| [t.name, t.id]}, {prompt: ''}, multiple: :true, :class => "form-control chosen-select" %>
+								<%= f.select :tag_ids, Tag.all.collect {|t| [t.name, t.id]}, {prompt: ''}, multiple: :true, :class => "form-control chosen-select info" %>
 							</div>	
 
 							<div class="form-group">
 								<%= f.label :metatags, :class => "sr-only" %>
-								<%= f.text_area :metatags, :class => "form-control", :placeholder => "Add meta tags" %>
+								<%= f.text_area :metatags, :class => "form-control", :placeholder => "Legge til søkeord (meta tags)" %>
 							</div>															
 
                         </div>
@@ -56,38 +55,42 @@
 
                     <div id="tab-2" class="tab-pane">
                         <div class="panel-body">
-							<h4>Sections:</h4>
+							<h4>Seksjoner:</h4>
 							<%= f.fields_for :sections do |s| %>
 								<div class="form-group">
-									<%= s.label :sectiontype %>
-									<%= s.select :sectiontype, [['Oppgave', '1'], ['Lenker', '2'], ['Video', '3'], ['Tekst', '4']], :class => 'form-control' %>	
+									<%= s.label :title, :class => "sr-only" %>
+									<%= s.text_field :title, :class => 'form-control', :placeholder => "Legge til en ny tittel..." %>
+								</div>								
+								<div class="form-group">
+									<%= s.label :sectiontype, 'Seksjonstype: ', :class => '' %>
+									<%= s.select :sectiontype, [['Velg seksjonstype', '0'],['Oppgave', '1'], ['Lenker', '2'], ['Video', '3'], ['Tekst', '4']], :class => "form-control" %>	
 								</div>
 								<div class="form-group">
-									<%= s.label :title, :class => "" %>
-									<%= s.text_field :title, :class => 'form-control', :placeholder => "Legge til en ny tittel..." %>
-								</div>	
-								<div class="form-group">
-									<%= s.label :content, :class => "" %>
+									<%= s.label :content, :class => "sr-only" %>
 									<%= s.text_area :content, :class => 'summernote', 'data-provider': :summernote %>
-								</div>	
-								   	<%= s.check_box :_destroy %>
-      								<%= s.label :_destroy, 'delete' %>
+								</div>
+								<div class="form-group">	
+								 	<%= s.check_box :_destroy %>
+      								<%= s.label :_destroy, 'Slette denne seksjonen' %>
+      							</div>
+      							<hr class="hr-line-solid">
 							<% end %>
-						 <%= f.submit 'Delete checked Sections', :name => 'delete_sections' %>
                         </div>
+                        <p></p>
+                        <div><%= f.submit 'Slette merkede seksjoner', :name => 'delete_sections', :class => 'btn btn-warning' %></div>
                     </div>        
 
                     <div id="tab-3" class="tab-pane">
                         <div class="panel-body">
-							<h4>Galleries:</h4>
+							<h4>Gallerier:</h4>
 							<%= f.fields_for :galleries do |g| %>
 								<div class="form-group">
 									<%= g.label :title, :class => "sr-only" %>
-									<%= g.text_field :title, :class => 'form-control', :placeholder => "Title" %>
+									<%= g.text_field :title, :class => 'form-control', :placeholder => "Tittel" %>
 								</div>
 								<div class="form-group">
 									<%= g.label :description, :class => "sr-only" %>
-									<%= g.text_field :description, :class => 'form-control', :placeholder => "Description" %>
+									<%= g.text_field :description, :class => 'form-control', :placeholder => "Beskrivelse" %>
 								</div>	
 							<% end %>
 
@@ -98,17 +101,17 @@
                     <div id="tab-4" class="tab-pane">
                         <div class="panel-body">
 
-							<h4>Links:</h4>
+							<h4>Oppfordringslenker: (Call To Action)</h4>
 							<%= f.fields_for :links do |l| %>
 								<div class="form-group">
 									<%= l.label :title, :class => "sr-only" %>
-									<%= l.text_field :title, :class => 'form-control', :placeholder => "Title" %>
+									<%= l.text_field :title, :class => 'form-control', :placeholder => "Tittel" %>
 								</div>	
 								<div class="form-group">
 									<%= l.label :url, :class => "sr-only" %>
-									<%= l.text_field :url, :class => 'form-control', :placeholder => "Url" %>
+									<%= l.text_field :url, :class => 'form-control', :placeholder => "Nettaddresse (URL)" %>
 								</div>				
-
+								<div></div>
 							<% end %>
 
                         </div>
@@ -117,19 +120,15 @@
 
 	                <div id="tab-5" class="tab-pane">
                         <div class="panel-body">
-							<h4>Documents:</h4>
+							<h4>Vedlegg:</h4>
 								<%= f.fields_for :documents do |d| %>
 								<div class="form-group">
-									<%= d.label :title, :class => "col-sm-2 control-label" %>
-									<div class="col-sm-10">
-										<%= d.text_field :title, :class => 'form-control', :placeholder => "Title" %>
-									</div>
+									<%= d.label :title, :class => "sr-only" %>
+									<%= d.text_field :title, :class => 'form-control', :placeholder => "Tittel" %>
 								</div>
 								<div class="form-group">
-									<%= d.label :description, :class => "col-sm-2 control-label" %>
-									<div class="col-sm-10">
-										<%= d.text_field :description, :class => 'form-control', :placeholder => "Description" %>
-									</div>
+									<%= d.label :description, :class => "sr-only" %>
+									<%= d.text_field :description, :class => 'form-control', :placeholder => "Beskrivelse" %>
 								</div>
 								<div class="btn-group">
 									<%= d.label :document, :class => "btn btn-default block full-width m-b" do %>
@@ -152,21 +151,22 @@
 
 			<div class="panel panel-default">
 			    <div class="panel-heading">
-			        <%= f.submit :class => "btn btn-primary btn-block" %>
+			        <%= f.submit 'Lagre', :class => "btn btn-primary btn-block" %>
 			    </div>
 			    <div class="panel-body">
 					<div class="checkbox checkbox-primary">
 						<%= f.check_box :publish, :class => "" %>
-						<%= f.label :publish %>
+						<%= f.label :publish, 'Publisere' %>
 			    	</div>
 			    	<div class="checkbox checkbox-primary">
 						<%= f.check_box :showpost, :class => "" %>
-						<%= f.label :showpost %>
+						<%= f.label :showpost, 'Vis på forsiden' %>
 					</div>    
 			    </div>
 
 			    <div class="panel-footer">
 			    	<span class="text-muted small">
+			    		Publisert av: <% if @post.moderator.present? %><%= @post.moderator.fullname %><% end %><br>
 			    		Sist oppdatert: <i class="zmdi zmdi-time"></i> <%= @post.updated_at.to_s(:long) if @post.updated_at? %>
 			    	</span>	
 			    </div>
@@ -180,21 +180,40 @@
 					<div class="img-responsive" id="image-holder"><%= image_tag @post.image_url(:medium) if @post.image? %></div>
 			    </div>
 				<div class="panel-footer">
-						<%= f.label :image, :class => "btn btn-default btn-block" do %>
-							<%= f.file_field :image, :class => 'hide'%><i class="zmdi zmdi-upload"></i>  last opp bilde
+						<%= f.label :image, :class => "btn btn-info btn-block" do %>
+							<%= f.file_field :image, :class => 'hide'%>Velg bilde
 						<% end %>
 					
 				</div>					    
 			</div>
+
+ 		<% end %>
+
+			<div class="panel panel-default">
+			    <div class="panel-heading">
+			        Oppfordringslenker
+			    </div>
+			    <div class="panel-body">
+				<% @post.links.each do |lx| %>
+					<p>
+						<i class="zmdi zmdi-link"></i> <%=link_to lx.title%>
+					</p> 
+				<% end %>
+			    </div>
+			    <div class="panel-footer">
+			    	
+			    </div>
+			</div>
+
 
 			<div class="panel panel-default">
 			    <div class="panel-heading">
 			        Vedlegg
 			    </div>
 			    <div class="panel-body">
-				<% @post.documents.each do |d| %>
+				<% @post.documents.each do |dx| %>
 					<p>
-						<i class="zmdi zmdi-file"></i> <%=link_to d.title%>
+						<i class="zmdi zmdi-attachment-alt"></i> <%= link_to dx.title, dx.document.url, :target => 'blank' %>	
 					</p> 
 				<% end %>
 			    </div>
@@ -204,7 +223,7 @@
 			</div>
 	
 		</div>    
-        <% end %>
+       
 
 
 
@@ -232,7 +251,7 @@
     '.chosen-select' : {},
     '.chosen-select-deselect' : {allow_single_deselect: true},
     '.chosen-select-no-single': {disable_search_threshold: 10},
-    '.chosen-select-no-result': {no_results_text: 'Oops, nothing found!'},
+    '.chosen-select-no-result': {no_results_text: 'Oi, ingenting funnet!'},
     '.chosen-select-width' : {width: "95%"}
   }
   for (var selector in config) {

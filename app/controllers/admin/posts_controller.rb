@@ -27,9 +27,9 @@ class Admin::PostsController < Admin::ApplicationController
       #@post.category_id = params[:category_id] 
       @post.moderator_id = current_moderator.id
       if @post.save
-        redirect_to admin_posts_url(cat: post_params[:category_id]), notice: 'Post was successfully created'
+        redirect_to admin_posts_url(cat: post_params[:category_id]), notice: 'Artikkelen: ' + post_params[:title] + ' ble lagret!'
       else
-        flash[:alert] = 'There was a problem creating post'
+        flash[:alert] = 'Kunne ikke lagre. Ser feilmeldingene for mer informasjon.'
         render :new
       end
    end
@@ -51,9 +51,9 @@ class Admin::PostsController < Admin::ApplicationController
     @post.category_id = params[:category_id]
     if @post.update(post_params)
       #redirect_to admin_posts_url, notice: 'Post was successfully updated'
-      redirect_to edit_admin_post_url(@post), notice: 'Post was successfully updated'
+      redirect_to edit_admin_post_url(@post), notice: 'Artikkelen: ' + post_params[:title] + ' ble oppdatert!'
     else
-      flash[:alert] = 'There was a problem updating post'
+      flash[:alert] = 'Det var et problem med oppdateringen'
       render :edit
     end
   end
@@ -66,7 +66,7 @@ class Admin::PostsController < Admin::ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to admin_posts_url(cat: params[:category_id]), notice: 'Post was successfully deleted'
+    redirect_to admin_posts_url(cat: params[:category_id]), notice: 'Artikkelen ble slettet!'
   end
 
 

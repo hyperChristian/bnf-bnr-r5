@@ -4,8 +4,8 @@ module Admin::AncestryHelper
   def arranged_tree_as_list(hash, options = {}, &block)
 
     options = {
-      :list_type            => :ol,
-      :list_style           => '', 
+      :list_type            => :ul,
+      :list_style           => 'none', 
       :ul_class             => [],
       :ul_class_top         => [],
       :ul_class_children    => [],
@@ -22,8 +22,8 @@ module Admin::AncestryHelper
       when :bootstrap_list_group
        # options[:ul_class] << ['list-group']
        # options[:li_class] << ['list-group-item']
-       options[:ul_class_top] << ['dd-list-top']
-       options[:li_class_top] << ['dd-item-top']
+       #options[:ul_class_top] << ['dd-list-top']
+       #options[:li_class_top] << ['dd-item-top']
        options[:ul_class] << ['dd-list']
        options[:li_class] << ['dd-item']        
     end
@@ -36,7 +36,7 @@ module Admin::AncestryHelper
       hash = Hash[hash.sort_by{|k, v| options[:sort_by].collect {|sort| k.send(sort)} } ]
     end
 
-    #current_depth = 0
+    current_depth = 0
     # and here... we... go...
     hash.each do |object, children|
 

@@ -1,15 +1,15 @@
 <div class="ibox">
     <div class="ibox-content">
         <div class="panel-body">	
-			<h3>Accounts</h3>
+			<h3>Administratorer</h3>
 
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>Fullname</th>
-						<th>Username</th>
-						<th>Role</th>
-						<th>actions</th>
+						<th>Fullt navn</th>
+						<th>Brukernavn</th>
+						<th>Rolle</th>
+						<th>Handlinger</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,6 +23,8 @@
 					<% end %>
 				</tbody>
 			</table>
+			<br>
+			<%= link_to 'Ny administrator', new_admin_moderator_path %>
 		</div>
 	</div>
 </div>

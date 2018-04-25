@@ -1,0 +1,34 @@
+<div class="ibox">
+  <div class="ibox-content">
+    <div class="panel-body">  
+     
+
+
+
+      <table class="table table-bordered table-hover" >
+        <thead>
+          <tr>
+            <th>Tittel</th>
+            <th>Kategori</th>
+        
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @articles.each do |art| %>
+            <tr>
+              <td><%= art.title %></td>
+              <td><%= art.category.name %></td>
+      
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      
+
+    </div>
+  </div>
+</div>

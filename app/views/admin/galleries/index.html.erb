@@ -9,9 +9,9 @@
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
-              <th>Description</th>
-              <th colspan="2">Actions</th>
+              <th>Navn</th>
+              <th>Beskrivelse</th>
+              <th colspan="2">Handlinger</th>
             </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@
               <td>
                 <%= link_to "Edit", edit_admin_gallery_path(gallery) %>
                 <%= link_to "Delete", admin_gallery_path(gallery),
-                :data => { :confirm => "Are you sure?" },
+                :data => { :confirm => "Er du sikker på at du vil slette?" },
                 :method => :delete%>
               </td>
             </tr>

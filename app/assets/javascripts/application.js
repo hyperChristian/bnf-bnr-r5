@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require bootstrap
-//= require chosen.jquery
-//= require summernote
-//= require summernote-video-attributes
+//= require scrolltopcontrol
+//= require jquery.sticky
+//= require custom
 //= require turbolinks
-//= require_tree .
+

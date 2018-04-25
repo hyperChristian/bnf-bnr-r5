@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   # GET /admin/categories
   # GET /admin/categories.json
   def index
-    @categories = Category.all
+    @categories = Category.order(id: :asc)
 
     #@categories = Category.find(:all, :include => :posts).where(:published => :true) # you may specify your conditions here
   # :include is needed to avoid a query on each "category.posts" call later in the view
@@ -72,6 +72,6 @@ class Admin::CategoriesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :description)
+      params.require(:category).permit(:name, :description, :categorytype)
     end
 end

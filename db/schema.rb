@@ -10,16 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323211151) do
+ActiveRecord::Schema.define(version: 20180415190100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.text "content"
+    t.string "image"
+    t.boolean "publish"
+    t.bigint "category_id"
+    t.bigint "moderator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "imagetext"
+    t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["moderator_id"], name: "index_articles_on_moderator_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "categorytype"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -127,6 +143,8 @@ ActiveRecord::Schema.define(version: 20180323211151) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "moderators"
   add_foreign_key "documents", "posts"
   add_foreign_key "galleries", "posts"
   add_foreign_key "images", "galleries"

@@ -15,9 +15,13 @@
     <%= f.label :name, :class => "" %>
     <%= f.text_field :name, :class => 'form-control', :placeholder => "Name" %>
   </div>
+    <div class="form-group">
+      <%= f.label :categorytype, 'Plassering: ', :class => '' %>
+      <%= f.select :categorytype, [['Velg plassering', '0'],['forside', '1'], ['nettresurs', '2']], :class => "form-control" %>  
+    </div>    
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description, :class => "summernote" %>
+    <%= f.text_area :description, :class => "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>

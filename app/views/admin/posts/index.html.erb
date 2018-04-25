@@ -1,7 +1,7 @@
 <div class="ibox">
     <div class="ibox-content">
         <div class="panel-body">	
-			<%= link_to 'Add New Top Level Article', new_admin_post_path, :class => 'btn btn-sm btn-primary' %>
+			<%= link_to 'Legge til ny topnivå-artikkel', new_admin_post_path, :class => 'btn btn-sm btn-primary' %>
 			<p><hr></p>
 			<% #@posts = Post.where({}).arrange %>
 
@@ -17,7 +17,7 @@
 			   	<div class="action-buttons text">
 					<%= link_to 'Add Child', new_admin_post_path(:parent_id => post, :category_id => post.category_id), :class => "btn btn-xs btn-primary" %>
 					<%= link_to 'Redigere', edit_admin_post_path(post), :class => "btn btn-xs btn-primary" %>
-					<%= link_to '', admin_post_path(post, :category_id => post.category_id), method: :delete, data: {confirm: 'Are you sure?'}, :class => "zmdi zmdi-delete btn btn-sm btn-danger" %>
+					<%= link_to '', admin_post_path(post, :category_id => post.category_id), method: :delete, data: {confirm: 'Er du sikker på at du vil slette?'}, :class => "zmdi zmdi-delete btn btn-sm btn-danger" %>
 			    </div>
 		   	</div>
 			<% end %>

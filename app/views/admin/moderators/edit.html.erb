@@ -3,7 +3,7 @@
 <div class="col-lg-12">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>Moderator profile</h5>
+            <h5>Administrator profil</h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -15,29 +15,8 @@
         </div>
         <div class="ibox-content">
 
-			<%= render 'validation_errors', object: @moderator %>
-			<%= form_for [:admin, @moderator] do |f| %>
-
-				<p>
-					<%= f.label :fullname %>
-					<%= f.text_field :fullname %>
-				</p>
-				<p>
-					<%= f.label :username %>
-					<%= f.text_field :username %>
-				</p>
-				<p>
-					<%= f.label :role %>
-					<%= f.text_field :role %>
-				</p>	
-				<p>
-					<%= f.label :password %>
-					<%= f.password_field :password %>
-				</p>
-				<p>
-					<%= f.submit :class => "btn btn-primary" %>
-				</p>
-			<% end %>
+        	<%= render 'form'%>
+        	
         </div>
     </div>
 </div>

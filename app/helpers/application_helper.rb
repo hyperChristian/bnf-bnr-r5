@@ -31,10 +31,13 @@ module ApplicationHelper
 			zicon = "videocam" 
 		when 4
 			zicon = "file-text" 
+		when 9
+			zicon = "attachment-alt"
 		else
 		   	zicon = "chevron-left" 
 		end
 		"<span class='ms-icon ms-icon-circle ms-icon-xlg color-info-#{stype}'><i class='zmdi zmdi-#{zicon}'></i></span>"
+		#"<i class='zmdi zmdi-#{zicon}'></i>"
 	end
 
 

@@ -44,6 +44,8 @@ gem 'xmlrpc'
 #Adds tree stucture to app
 gem 'ancestry', '~> 2.1'
 
+#gem 'friendly_id', '~> 5.1'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

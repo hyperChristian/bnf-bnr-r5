@@ -1,14 +1,16 @@
 /* Base CSS */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+
 
 body {
   color: #616161;
   background: #ffffff;
- font-family: "Europa", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.05em;
+  position:relative;
 }
 
 html, body {
@@ -19,7 +21,7 @@ html, body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: #424242;
-  font-family: "Europa", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   letter-spacing: 0.075em;
   margin-top: 0;
@@ -71,7 +73,7 @@ a:hover, a:active, a:focus {
 }
 
 p {
-  font-family: "Europa", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -88,6 +90,10 @@ p.card-text{
   margin-top:10px;
   font-size: 16px;
   font-weight: 400;
+}
+
+.mt-5 {
+  margin-top:3rem !important;
 }
 
 .featured-bg-gradient {
@@ -596,6 +602,18 @@ a.btn {
   white-space: nowrap;
 }
 
+/* CTA Button */
+.btn-cta, .btn-cta:active, .btn-cta:focus {
+  background-color: #df8f3a;
+  color:#ffffff;
+}
+
+.btn-cta:hover {
+    background-color: #df8f3a;
+    color:#ffffff;
+}
+/* End CTA Button */
+
 /* Default Button */
 .btn-default, .btn-default:active, .btn-default:focus {
   color: #333333;
@@ -1043,7 +1061,7 @@ a.btn {
 }
 
 .panel-group .panel-body p > a {
-  color:#e74c3c;
+  color:#666666;
 }
 
 .panel-body p a:before{
@@ -1081,27 +1099,27 @@ border-bottom: 1px solid #ddd;
 .ms-icon.ms-icon-xlg {
     width: 40px;
     height: 40px;
-    line-height: 42px;
-    font-size: 22px;
+    line-height: 40px;
+    font-size: 19px;
 }
 .ms-icon.ms-icon-circle {
     border-radius: 50%;
 }
 .ms-icon.color-info-1 {
     color: #fff!important;
-    background: #e67e22;
+    background: #79a360;
 }
 .ms-icon.color-info-2 {
     color: #fff!important;
-    background: #3e628a;
+    background: #5895a6;
 }
 .ms-icon.color-info-3 {
     color: #fff!important;
-    background: #e67e22;
+    background: #f9b42a;
 }
 .ms-icon.color-info-4 {
     color: #fff!important;
-    background: #e74c3c;
+    background: #883d49;
 }
 .ms-icon {
     width: 40px;
@@ -1316,9 +1334,50 @@ border-bottom: 1px solid #ddd;
 /* / End Labels Badges & Alerts */
 /* Listgroups & Panels */
 /* Listgroups */
-.dd-list{
+#innhold .dd-list{
   list-style-type: none;
+  margin:0;
+  padding: 0 0 0 20px;
   
+}
+
+#innhold .dd-list .dd-item a{
+  font-weight: 700;
+  color:#333333;
+}
+
+#innhold .dd-list .dd-item a:active{
+  color:red;
+}
+
+#innhold  .dd-list .dd-item a:before {
+  padding-right: 5px;
+  font-family: "Material-Design-Iconic-Font";
+  font-size: 12px;
+  content: "\f2f6";
+}
+
+#innhold .dd-list .dd-item a:hover{
+  color:red;
+}
+
+#innhold .dd-list .dd-item .dd-list .dd-item a{
+  padding:0px;
+  color:#555555;
+  font-weight: 400;
+}
+#innhold .dd-list .dd-item .dd-list .dd-item a:before {
+  padding-right: 5px;
+  font-family: "Material-Design-Iconic-Font";
+  font-size: 12px;
+  content: "\f2f6";
+}
+
+
+#innhold .dd-list .dd-item .dd-list .dd-item .dd-list .dd-item a{
+  padding:0px;
+  color:#777777;
+  font-weight: 400;
 }
 
 .list-group{
@@ -1615,7 +1674,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
   line-height: 20px;
   font-weight: 400;
   height: auto;
-  padding: 30px 0 0 0;
+  padding: 25px 0 0 0;
 }
 
 .navbar-brand span {
@@ -1634,7 +1693,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .navbar-brand > img {
-  width: 300px;
+  width: 250px;
   /*max-height: 40px;*/
 }
 
@@ -2183,7 +2242,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
   left: 10%;
   text-align: left;
   visibility: hidden;
-  opacity: 0;
+  opacity: 0  ;
   -webkit-transition: opacity 0.3s, ease-in-out 0.3s;
   -moz-transition: opacity 0.3s, ease-in-out 0.3s;
   -o-transition: opacity 0.3s, ease-in-out 0.3s;

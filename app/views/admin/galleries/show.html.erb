@@ -12,9 +12,9 @@
   </p>
 
   <div class="form-actions">
-    <%= link_to 'Back', admin_galleries_path, :class => 'btn btn-mini'  %>
-    <%= link_to 'Edit gallery', edit_admin_gallery_path(@gallery), :class => 'btn btn-mini' %>
-    <%= link_to 'Delete gallery', admin_gallery_path(@gallery), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
+    <%= link_to 'Tilbake', admin_galleries_path, :class => 'btn btn-mini'  %>
+    <%= link_to 'Regigere galleri', edit_admin_gallery_path(@gallery), :class => 'btn btn-mini' %>
+    <%= link_to 'Slett galleri', admin_gallery_path(@gallery), :method => 'delete', :confirm => 'Er du sikker?', :class => 'btn btn-mini' %>
   </div>
 
 </div>
@@ -32,7 +32,7 @@
                    <%= image_tag pic.image.url :thumb %>
                 </div>
                 <div class="file-name">
-                    <%= link_to "Delete picture", :data => { :confirm => "Are you sure?" }, :method => :delete %>
+                    <%= link_to "Slett bilde", :data => { :confirm => "Er du sikker?" }, :method => :delete %>
                     <br>
                     <small>Added: <%= time_ago_in_words(pic.created_at) %> ago</small>
                 </div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- root to: 'posts#index'
+ root to: 'posts#home'
 
   get '/admin' => 'admin/sessions#new'
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :dashboard, only: [:index]
+    resources :articles, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :settings, only: [:new, :create, :edit, :update]
     resources :categories
     resources :posts do
@@ -19,12 +20,18 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :edit, :update, :destroy]
     resources :links
     resources :sessions, only: [:index, :create, :destroy]
-    resources :moderators, only: [:index, :edit, :update]
+    resources :moderators, only: [:index, :new, :create, :edit, :update]
     resources :uploads, only: [:create, :destroy]
 
   end
 
-  resources :posts, only: [:index, :show]
+  resources :articles, only: [:index, :show]
+  resources :posts do
+    collection do 
+      get :search, :action => 'search_post', :as => 'search_post'
+      get 'search/:q', :action => 'search', :as => 'search'
+    end
+  end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
 end
