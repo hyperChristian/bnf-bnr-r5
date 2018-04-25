@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @categories = Category.where(:categorytype => '2')
+    @categories = Category.where(:categorytype => 2)
     if params[:tag]
       #@posts = Post.filter_by_tags(params[:tag]).page(params[:page]).per(Setting.post_per_page)
       @posts = Post.filter_by_tags(params[:tag])

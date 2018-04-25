@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @categories = Category.where(:categorytype => '1')
+    @categories = Category.where(:categorytype => 1)
 
     @articles = Article.all.where(:publish => true).order(:id => :asc)
   

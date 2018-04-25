@@ -1,8 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :set_admin_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /admin/categories
-  # GET /admin/categories.json
+ 
   def index
     @categories = Category.order(id: :asc)
 
@@ -10,8 +9,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   # :include is needed to avoid a query on each "category.posts" call later in the view
   end
 
-  # GET /admin/categories/1
-  # GET /admin/categories/1.json
+ 
   def show
   end
 
