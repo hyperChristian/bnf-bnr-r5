@@ -1,30 +1,4 @@
-/*------------------------------------------------------------------
-Project:    Mosaic
-Author:     Simpleqode
-URL:        http://simpleqode.com/
-            https://twitter.com/YevSim
-            https://www.facebook.com/simpleqode
-Version:    1.3.3
-Created:        20/01/2014<table class="table table-bordered">
-  <tbody>
-  <% @posts.each do |post| %> 
-  <tr>
-    <td>
-      <%= image_tag post.image.url(:thumb), :class => "img-responsive" if post.image? %>  
-      <div class="item">
-          <%=  link_to post_path(post) do  %>
-        <%= post.title %>
-      <% end %>
-        <p class="text-muted"><%= trancate(post.content, length = 100)%></p>
-      </div>
-    </td>
-    <td>...</td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
-Last change:    20/06/2016
--------------------------------------------------------------------*/
+
 
 /* ===== General ===== */
 
@@ -837,7 +811,7 @@ footer h3 > span {
   margin-top: -20px;
 }
 .jumbotron.first {
-  background: url(slide-2.jpg) no-repeat center center;
+  background: url(image-path('slide-2.jpg')) no-repeat center center;
   background-size: cover;
 }
 .jumbotron.second {
