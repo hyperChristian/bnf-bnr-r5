@@ -150,26 +150,28 @@
 
 	                    		<!-- Attachements -->
 								<% if post.documents.present? %>
-								<div class="panel-group tabbed">								 
-				                    <div class="panel">
-					                    <div class="panel-heading">
-					                        <a class="panel-title accordion-toggle collapsed" data-toggle="collapse" href="#panel-attachement" aria-expanded="false">
-					                         	<div class="ms-list-icon">
-													<%= selection_type_icon('9').html_safe %>
-												</div>
-												<div class="ms-list-text">Vedlegg</div>
-					                        </a>
-					                    </div>
-					                    <div id="panel-attachement" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-					                        <div class="panel-body text-gray" style="padding:20px 40px;">
-												<% post.documents.each do |d| %>
-													<p><%= link_to d.title, d.document.url, :target => 'blank' %>
-													</p>
-												<% end %>
-					                        </div>
-					                    </div>
-				                    </div>			       
-				                </div>	
+								<div class="row mt-5">
+									<div class="panel-group tabbed">								 
+					                    <div class="panel">
+						                    <div class="panel-heading">
+						                        <a class="panel-title accordion-toggle collapsed" data-toggle="collapse" href="#panel-attachement-<%= post.id %>" aria-expanded="false">
+						                         	<div class="ms-list-icon">
+														<%= selection_type_icon(9).html_safe %>
+													</div>
+													<div class="ms-list-text">Vedlegg</div>
+						                        </a>
+						                    </div>
+						                    <div id="panel-attachement-<%= post.id %>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+						                        <div class="panel-body text-gray" style="padding:20px 40px;">
+													<% post.documents.each do |d| %>
+														<p><%= link_to d.title, d.document.url, :target => 'blank' %>
+														</p>
+													<% end %>
+						                        </div>
+						                    </div>
+					                    </div>			       
+					                </div>	
+				            	</div>
 				                <% end %>
 				                <!-- / Attachements -->
 
