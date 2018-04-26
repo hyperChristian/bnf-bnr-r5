@@ -1,5 +1,5 @@
     <!-- post content + sidebar -->
-    <section>
+    <section style="margin:20px;">
         <div class="row">
             <!-- post content area -->
             <div class="col-md-9">
@@ -19,7 +19,7 @@
 	                        	<%= @post.content.html_safe %>  	
 	                        </div>
 				    		<div class="col-md-4">
-				    			<p><%= image_tag @post.image_url(:medium), :class => 'img-responsive img-border img-radius' if @post.image?%></p>
+				    			<p><%= image_tag @post.image_url(:large), :class => 'img-responsive img-border img-radius' if @post.image?%></p>
 				    			<div class="">
 				    				<% @post.links.each do |l| %>
 				    					<%= link_to l.title, l.url, :class => 'btn btn-xs btn-cta' %>
@@ -28,10 +28,8 @@
 				    		</div>
                         </div>
 
-                        <!-- sections content area -->
-
+                        <!-- sections content area -->						
 						<div class="row mt-5">
-
 							<% if @post.documents.present? %>
 							<div class="panel-group tabbed">								 
 			                    <div class="panel">
@@ -53,7 +51,7 @@
 				                    </div>
 			                    </div><!-- / panel -->			       
 			                </div>	
-			                <% end %>
+			            	<% end %>
 
 			                <% if @post.sections.present? %>								
 							<% @post.sections.ordered.each do |section| %>

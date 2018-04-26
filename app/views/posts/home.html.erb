@@ -1,28 +1,28 @@
        
 
-        <h2 class="headline text-color">
-          <span class="border-color">Aktuelt</span>
-        </h2>
-        <div class="row recent-articles">
+<h2 class="headline text-color">
+  <span class="border-color">Aktuelt</span>
+</h2> 
+<div class="row recent-articles">
 
-         <% @articles.each do |art| %>
-          <div class="col-sm-6">
-            <div class="recent-article">
-              <%= image_tag art.image_url(:medium), :class => 'media-object' if art.image? %>
-              <div class="recent-article-desc">
-                <h3 class="primary-font">
-                  <%=  link_to article_path(art) do %>
-                    <%= art.title %>
-                  <% end %>
-                </h3>
-                <hr>
-                <p></p>
-                <a class="btn btn-md btn-color" href="#">Les mer...</a>
-              </div>
-            </div>
-          </div>
+  <% @articles.each do |art| %>
+  <div class="col-md-6">
+    <div class="recent-article">
+      <%= image_tag art.image_url(:medium), :class => 'media-object' if art.image? %>
+      <div class="recent-article-desc">
+        <h3 class="primary-font">
+          <%=  link_to article_path(art) do %>
+            <%= art.title %>
           <% end %>
+        </h3>
+        <hr>
+        <p></p>
+        <a class="btn btn-md btn-color" href="#">Les mer...</a> 
+      </div>
+    </div>
+  </div>
+  <% end %>
 
-
+</div>
 
 
