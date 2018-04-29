@@ -5,7 +5,8 @@
 </h2> 
 <div class="row recent-articles">
 
-  <% @articles.each do |art| %>
+  <% @articles.published.each do |art| %>
+   
   <div class="col-md-6">
     <div class="recent-article">
       <%= image_tag art.image_url(:medium), :class => 'media-object' if art.image? %>

@@ -4,9 +4,12 @@ class Article < ApplicationRecord
   	has_many :assets
 	validates :title, presence: true
 
-	#scope :published, -> { where(publish: true).order(id: :desc) }
+	scope :published, -> { where(publish: true, :category_id => '5').order(created_at: :asc).limit(2) }
 
-	#scope :aktuelt, -> { where(publish: true AND category_id: '5').order(created_at: :desc) }
+	scope :illustrasjon, -> { where(publish: true, :category_id => '8').order(title: :asc) }
+
+	scope :aktuelt, -> { where(publish: true, :category_id => '5').order(created_at: :desc) }
+
 	accepts_nested_attributes_for :assets, reject_if: proc { |attributes| attributes[:image].blank? }
 
 	mount_uploader :image, ImageUploader
