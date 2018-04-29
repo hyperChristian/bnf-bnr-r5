@@ -1,9 +1,10 @@
 
+<%= render 'search', route: posts_path %>
 
+<div class="row mt-5">
 
-<div class="row">
-	<div class="col-sm-9">
-		<h4 class="primary-font">Søkeresultater: <%=params[:search] %></h4>
+	<div class="col-sm-12">
+		<h4 class="primary-font">Søkeresultater: <i><%=params[:search] %></i></h4>
 		
 		<% if @posts.present? %>
 		<table class="table table-responsive">
@@ -20,11 +21,12 @@
 						<%= post.title %>
 					<% end %>
 					</strong>
+					<span><%= post.category.name %></span>
 					<% @string = post.content.html_safe %>
-			      	<p class="text-muted"><%= truncate(@string, :length => 200) %></p>
+			      	<p class="text-muted"><%= truncate(@string, :length => 180, :omission => "", :escape => false) %></p>
 			    </div>
 			  </td>
-			  <td>...</td>
+			
 			</tr>
 			<% end %>
 			</tbody>
@@ -33,11 +35,7 @@
 			<p>Fant ingen resultater for: <i><%=params[:search] %></i></p>
 		<% end %>
 	</div>
-	<div class="col-sm-3">
-		<div class="blog-p-search">
-			<%= render 'search', route: posts_path %>
-        </div>
-	</div>
+	
 </div>
 
 

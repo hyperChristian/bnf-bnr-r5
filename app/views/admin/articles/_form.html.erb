@@ -1,4 +1,5 @@
-<%= form_for [:admin, @article] do |f| %>
+<input type="hidden" id="articleID" value="<%= @article.id %>">
+<%= form_for [:admin, @article], html: { multipart: true } do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this admin_article from being saved:</h2>
@@ -28,7 +29,26 @@
       <%= f.text_area :content, :class => "summernote" %>
     </div>
 
+    <h4>Bilder:</h4>
+      <%= f.fields_for :assets do |d| %>
+      <div class="form-group">
+        <%= d.label :imagetext, :class => "sr-only" %>
+        <%= d.text_field :imagetext, :class => 'form-control', :placeholder => "Bildetekst..." %>
+      </div>
+      <div class="btn-group">
+        <%= d.label :image, :class => "btn btn-default block full-width m-b" do %>
+          <%= d.file_field :image, :class => 'hide'%> Velg bilde
+        <% end %>
+      </div>          
+    <% end %> 
+
+
   </div>
+ 
+
+
+
+  <!-- aside right-->
   <div class="col-sm-3">
 
     <div class="panel panel-default">
@@ -72,6 +92,25 @@
         <% end %>
       </div>  
     </div>
+
+
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              Artikkelbilder
+          </div>
+          <div class="panel-body">
+        <% @article.assets.each do |dx| %>
+          <p>
+            <div class="img-responsive" id="image-holder"><%= image_tag dx.image_url(:thumb) if dx.image? %></div>
+          </p> 
+        <% end %>
+          </div>
+          <div class="panel-footer">
+            
+          </div>
+      </div>
+
   </div>
   
 

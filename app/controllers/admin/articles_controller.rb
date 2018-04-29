@@ -15,10 +15,12 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def new
     @article = Article.new
+    @article.assets.build
   end
 
   def edit
     @categories = Category.where(:categorytype => '2')
+    @article.assets.build
   end
 
 
@@ -60,6 +62,7 @@ class Admin::ArticlesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :summary, :content, :image, :imagetext, :publish, :category_id, :moderator_id)
+      params.require(:article).permit(:title, :summary, :content, :image, :imagetext, :publish, :category_id, :moderator_id,
+                               assets_attributes: [:id, :image, :imagetext],)
     end
 end
