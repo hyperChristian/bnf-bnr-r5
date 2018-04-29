@@ -1014,6 +1014,10 @@ border-bottom: 1px solid #ddd;
     color: #fff!important;
     background: #883d49;
 }
+.ms-icon.color-info-9 {
+    color:#FFFFFF!important;
+    background:#e35e54;
+}
 .ms-icon {
     width: 40px;
     height: 40px;
