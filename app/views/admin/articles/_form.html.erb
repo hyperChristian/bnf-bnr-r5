@@ -31,7 +31,7 @@
 
     <h4>Bilder:</h4>
       <%= f.fields_for :assets do |d| %>
-       <div class="img-responsive"><%= image_tag d.image_url(:thumb) if d.image? %></div>
+      <div><%= image_tag f.object.image_url(:thumb) %></div>
       <div class="form-group">
         <%= d.label :imagetext, :class => "sr-only" %>
         <%= d.text_field :imagetext, :class => 'form-control', :placeholder => "Bildetekst..." %>
