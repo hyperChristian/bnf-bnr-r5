@@ -31,7 +31,7 @@
 
     <h4>Bilder:</h4>
       <%= f.fields_for :assets do |d| %>
-      <div><%= image_tag f.object.image_url(:thumb) %></div>
+
       <div class="form-group">
         <%= d.label :imagetext, :class => "sr-only" %>
         <%= d.text_field :imagetext, :class => 'form-control', :placeholder => "Bildetekst..." %>
@@ -103,7 +103,7 @@
           <div class="panel-body">
         <% @article.assets.each do |dx| %>
           <p>
-            <div class="img-responsive" id="image-holder"><%= image_tag dx.image_url(:thumb) if dx.image? %></div>
+            <div class="img-responsive" id="image-holder"><%= image_tag dx.image_url(:large) if dx.image? %></div>
           </p> 
         <% end %>
           </div>

@@ -1065,8 +1065,8 @@ border-bottom: 1px solid #ddd;
 }
 .portfolio-item {
   margin-bottom: 20px;
-  max-height: 350px;
-  min-height: 350px;
+  max-height: 380px;
+  min-height: 380px;
   overflow: hidden;
 }
 .portfolio-item > a {

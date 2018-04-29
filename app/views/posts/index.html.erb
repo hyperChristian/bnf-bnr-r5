@@ -5,8 +5,9 @@
 	    <h2 class="headline text-color">
           <span class="border-color"><%= cat.name %></span>
         </h2>
-
+        <div class="row">
 	   	<% for post in cat.posts.where(:publish => true, :showpost => true).order(:id => :asc) %>
+	   	
         <div class="col-sm-3">
             <!-- Portfolio Item #3 -->
             <div class="portfolio-item">
@@ -31,7 +32,8 @@
               	</div>
             </div>
         </div>
+   
 		<% end %>
-	
+	 </div>
 	<% end %>
 
