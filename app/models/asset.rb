@@ -3,5 +3,5 @@ class Asset < ApplicationRecord
 
   validates :image, presence: true
 
-  mount_uploader :asset, ImageUploader
+  mount_uploader :image, ImageUploader
 end
