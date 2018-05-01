@@ -18,7 +18,7 @@
           <% @categories.each do |cat| %>
             <tr>
               <td><%= cat.name %></td>
-              <td><%= cat.description %></td>
+              <td><%= cat.description.html_safe %></td>
               <td><%= cat.categorytype %></td>
               <td><%= link_to 'Redigere', edit_admin_category_path(cat) %></td>
               <td><%= link_to 'Slett', admin_category_path(cat), method: :delete, data: { confirm: 'Er du sikker?' } %></td>

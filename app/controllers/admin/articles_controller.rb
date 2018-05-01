@@ -20,7 +20,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def edit
-    @categories = Category.where(:categorytype => '2')
+    @categories = Category.where(:categorytype => 2)
     @article.assets.build
   end
 

@@ -57,20 +57,36 @@
                         <i class="zmdi zmdi-folder"></i> Kategorier
                     <% end %>
                 </li>  
-       
-                <li>
-                	<%= link_to admin_posts_path(:cat => '1') do %>
-                        <i class="zmdi zmdi-view-list"></i> VG1
-                    <% end %>
-                    <%= link_to admin_posts_path(:cat => '2') do %>
-                        <i class="zmdi zmdi-view-list"></i> VG2
-                    <% end %>
-                    <%= link_to admin_posts_path(:cat => '3') do %>
-                        <i class="zmdi zmdi-view-list"></i> VG3
-                    <% end %>
-                    <%= link_to admin_posts_path(:cat => '4') do %>
-                        <i class="zmdi zmdi-view-list"></i> Andre fagbøker
-                    <% end %>                                                            
+
+                <li class="active">
+                    <a href="#"><i class="zmdi zmdi-edit"></i> <span class="nav-label" data-i18n="nav.posts">Bokas nettressurs</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li class="<%= is_active_action('VG1') %>">
+                            <%= link_to admin_posts_path(:cat => '1') do %>
+                                <i class="zmdi zmdi-view-list"></i> VG1
+                            <% end %>
+                        </li>
+                        <li class="<%= is_active_action('VG2') %>">
+                            <%= link_to admin_posts_path(:cat => '2') do %>
+                                <i class="zmdi zmdi-view-list"></i> VG2
+                            <% end %>
+                        </li>
+                        <li class="<%= is_active_action('VG3') %>">
+                            <%= link_to admin_posts_path(:cat => '3') do %>
+                                <i class="zmdi zmdi-view-list"></i> VG3
+                            <% end %>
+                        </li>
+                        <li>
+                           <%= link_to admin_posts_path(:cat => '4') do %>
+                                <i class="zmdi zmdi-view-list"></i> Andre fagbøker
+                            <% end %>   
+                        </li>
+                        <li>
+                           <%= link_to admin_posts_path(:cat => '4') do %>
+                                <i class="zmdi zmdi-view-list"></i> Fagressurser
+                            <% end %>   
+                        </li>
+                    </ul>
                 </li>
            
                 <li>

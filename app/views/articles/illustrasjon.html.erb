@@ -1,0 +1,19 @@
+
+          
+            
+    
+        <div class="row">
+          <% @articles.each do |art| %>
+          <div class="col-sm-4 col-md-3">
+            <div class="portfolio-item">
+              <a href="portfolio-item.html">
+                <%= image_tag art.image_url(:medium), :class => 'img-responsive img-border img-radius' if art.image?%>
+                <div class="mask">
+                  <%= art.title %>
+                  <span class="pull-right"></span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <% end %>
+        </div>

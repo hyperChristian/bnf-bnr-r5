@@ -3,10 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @categories = Category.where(:categorytype => 1)
-
-    @articles = Article.all.where(:publish => true).order(:id => :asc)
-  
-   
+    @articles = Article.all.where(:publish => true).order(:id => :asc)  
     render :layout => 'list_page'
   end
 
@@ -22,6 +19,11 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     render :layout => 'articles_page'
+  end
+
+  def illustrasjon
+    @articles = Article.illustrasjon
+    render :layout => 'illustration_page'
   end
 
 end

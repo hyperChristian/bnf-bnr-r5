@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  root to: 'posts#home'
+ get 'illustrasjonsarkiv' => 'articles#illustrasjon'
 
   get '/admin' => 'admin/sessions#new'
 
@@ -25,7 +26,13 @@ Rails.application.routes.draw do
 
   end
 
-  resources :articles, only: [:index, :show]
+  resources :articles do
+
+    member do
+      match 'illustration', via: [:get, :post]
+    end
+
+  end
   resources :posts do
     collection do 
       get :search, :action => 'search_post', :as => 'search_post'
