@@ -1,17 +1,22 @@
 
 <div class="container">
   <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <% @illustrasjon.assets.each do |ill| %>
+            <div class="col-md-3">
+              <%= image_tag ill.image.url(:thumb), :class => "img-responsive" if ill.image? %>  
+            </div>
 
-    <h3>
-      <%= @illustrasjon.title%>
-    </h3>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          <%= @illustrasjon.title%>
+        </h3>
+        <%= @illustrasjon.content.html_safe %>
 
-    <p>
-      <strong><%= @illustrasjon.summary %></strong>
-    </p>
-
-    <p>
-      <%= @illustrasjon.content.html_safe %>
-    </p>
+      </div>
   </div>
 </div>
