@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
  root to: 'posts#home'
  
-
   get '/admin' => 'admin/sessions#new'
 
   get '/login' => 'admin/sessions#index'
   get '/logout' => 'admin/sessions#destroy'
-
-  #get 'illustrasjonsarkiv' => 'articles#illustrasjoner' 
 
   namespace :admin do
 
@@ -35,6 +32,11 @@ Rails.application.routes.draw do
   resources :illustrations do
 
   end
+
+  resources :hms do
+
+  end
+
   resources :illustrasjonsarkiv, controller: 'illustrations'
   resources :bokasnettressurs, controller: 'posts'
   resources :posts do
