@@ -14,6 +14,8 @@ class Article < ApplicationRecord
 
 	mount_uploader :image, ImageUploader
 
+	mount_uploader :document, DocumentUploader
+
 	def to_param
     	"#{id} #{title}".parameterize
   	end

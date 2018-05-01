@@ -95,6 +95,21 @@
     </div>
 
 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Dokument
+      </div>
+      <div class="panel-body">
+        <%= @article.document if @article.document?%>
+      </div>
+      <div class="panel-footer">
+        <%= f.label :document, :class => "btn btn-info btn-block" do %>
+          <%= f.file_field :document, :class => 'hide'%>Velg dokument
+        <% end %>
+      </div>  
+    </div>    
+
+
 
       <div class="panel panel-default">
           <div class="panel-heading">

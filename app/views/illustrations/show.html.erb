@@ -16,7 +16,13 @@
           <%= @illustrasjon.title%>
         </h3>
         <%= @illustrasjon.content.html_safe %>
-
+        <div>
+          <p>
+            <% link_to @illustrasjon.document.url do %>
+              <div class="btn btn-md btn-primary">Last ned alle bildene (.zip)</div>
+            <% end %>
+          </p>
+        </div>
       </div>
   </div>
 </div>
