@@ -1152,6 +1152,54 @@ border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
 }
 
+/* Illustrasjonsarkiv */
+
+.illustrasjon {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.illustrasjon__nav {
+  margin-bottom: 20px;
+}
+.illustrasjon-item {
+  margin-bottom: 20px;
+}
+.illustrasjon-item > a {
+  position: relative;
+  display: block;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.illustrasjon-item > a > .mask {
+  position: absolute;
+  bottom: -40px;
+  width: 100%;
+  padding: 10px;
+  background: #4E4D4A;
+  color: #fff;
+  opacity:0.8;
+  -webkit-transition: bottom 500ms;
+      transition: bottom 500ms;
+}
+.col-sm-3 > .illustrasjon-item > a > .mask,
+.col-md-3 > .illustrasjon-item > a > .mask,
+.col-lg-3 > .illustrasjon-item > a > .mask {
+  font-size: 0.9em;
+}
+.illustrasjon-item > a:hover > .mask {
+  bottom: 0;
+}
+.illustrasjon-desc {
+  padding: 0 5px;
+  margin-bottom: 20px;
+}
+.illustrasjon-desc > h3 {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+
 /* ===== Features ===== */
 
 .features.last {

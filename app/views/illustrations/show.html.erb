@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="row">
+
+    <h3>
+      <%= @illustrasjon.title%>
+    </h3>
+
+    <p>
+      <strong><%= @illustrasjon.summary %></strong>
+    </p>
+
+    <p>
+      <%= @illustrasjon.content.html_safe %>
+    </p>
+  </div>
+</div>

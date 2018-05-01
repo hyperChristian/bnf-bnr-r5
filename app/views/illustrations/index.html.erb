@@ -1,0 +1,22 @@
+        <div class="row">
+          <% @illustrasjoner.each do |art| %>
+          <div class="col-sm-4 col-md-3">
+            <div class="illustrasjon-item">
+              <a href="illustrasjon-item.html">
+                <%= image_tag art.image_url(:medium), :class => 'img-responsive img-border img-radius' if art.image?%>
+                <div class="mask">
+                  <%= art.imagetext %>
+                  <span class="pull-right"></span>
+                </div>
+              </a>
+            </div>
+            <div class="illustrasjon-item-desc">
+              <h4 class="primary-font">
+                <%=  link_to illustrasjonsarkiv_path(art) do  %>
+                  <%= art.title %>
+                <% end %>  
+              </h4>
+            </div>            
+          </div>
+          <% end %>
+        </div>

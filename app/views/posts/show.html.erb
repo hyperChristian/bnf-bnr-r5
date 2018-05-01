@@ -11,7 +11,7 @@
                 	<p class="breadcrumbs" aria-label="breadcrumb">
 	                   <% all_parents = @post.ancestors %>
 						<% all_parents.each do |ancestor| %>
-							<%=  link_to ancestor.title, post_path(ancestor), :class => 'breadcrumb-item' %> /
+							<%=  link_to ancestor.title, bokasnettressur_path(ancestor), :class => 'breadcrumb-item' %> /
 						<% end %>
 					</p>
                     <div class="post-info-box">
@@ -95,7 +95,7 @@
 
 	                	<div class="row">
 	                		<div class="col-md-12">
-	                			<%= link_to post_path(post) do %><h3><%= post.title %></h3><% end %></div></div>
+	                			<%= link_to bokasnettressur_path(post) do %><h3><%= post.title %></h3><% end %></div></div>
 	                			<div class="row">
 	                		
 	                    			<div class="col-md-7">

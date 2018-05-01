@@ -21,8 +21,13 @@ class ArticlesController < ApplicationController
     render :layout => 'articles_page'
   end
 
+  def illustrasjoner
+    @illustrasjoner = Article.illustrasjon
+    render :layout => 'illustration_page'
+  end
+
   def illustrasjon
-    @articles = Article.illustrasjon
+    @illustrasjon = Article.find(params[:id])
     render :layout => 'illustration_page'
   end
 

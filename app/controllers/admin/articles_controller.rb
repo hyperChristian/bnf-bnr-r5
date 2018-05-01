@@ -6,7 +6,6 @@ class Admin::ArticlesController < Admin::ApplicationController
   def index
     @articles = Article.where(:publish => :true)
 
-
   end
 
 
