@@ -3,7 +3,7 @@
   <div class="row">
       <div class="col-md-8">
         <div class="row">
-          <h3 class="hidden-md-up">
+          <h3 class="visible-xs-*">
             <%= @illustrasjon.title%>
           </h3>
           <% @illustrasjon.assets.each do |ill| %>
@@ -14,17 +14,14 @@
         </div>
       </div>
       <div class="col-md-4">
-        <h3 class="xs-hidden">
+        <h3 class="sm-hidden">
           <%= @illustrasjon.title%>
         </h3>
         <%= @illustrasjon.content.html_safe %>
         <div class="row">
-          <p>
-            <% link_to @illustrasjon.document.url do %>
-              <div class="btn btn-md btn-color">Last ned alle bildene (.zip)</div>
-            <% end %>
-            <i class="zmdi zmdi-attachment-alt"></i> <%= link_to "Last ned bildene (.zip)", @illustrasjon.document.url, :target => 'blank' %> 
-          </p>
+          <span class="btn btn-md btn-color">
+            <i class="zmdi zmdi-attachment-alt"></i> <%= link_to "Last ned bildene (.zip)", @illustrasjon.document.url, :target => 'blank' if @illustrasjon.document? %> 
+          </span>
         </div>
       </div>
   </div>
