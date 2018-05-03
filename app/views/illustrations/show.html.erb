@@ -4,10 +4,9 @@
       <div class="col-md-8">
         <div class="row">
           <% @illustrasjon.assets.each do |ill| %>
-            <div class="col-sm-6 col-md-3">
-              <%= image_tag ill.image.url(:thumb), :class => "img-responsive" if ill.image? %>  
+            <div class="col-xs-6 col-md-3">
+              <%= image_tag ill.image.url(:thumb), :class => "img-responsive img-illustrasjon" if ill.image? %>  
             </div>
-
           <% end %>
         </div>
       </div>

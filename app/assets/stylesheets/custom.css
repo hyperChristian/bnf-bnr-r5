@@ -1196,6 +1196,11 @@ border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
 }
 
+.img-illustrasjon {
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
 
 /* ===== Features ===== */
 
