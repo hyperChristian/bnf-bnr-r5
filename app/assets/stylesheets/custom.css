@@ -36,6 +36,10 @@ h6,
   font-family: 'Open Sans', sans-serif;
 }
 
+.content-bn h3{
+  margin-bottom: 20px;
+}
+
 /* ===== Sticky Footer ===== */
 
 .wrapper {

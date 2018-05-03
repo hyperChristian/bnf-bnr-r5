@@ -21,9 +21,9 @@
 						<%= post.title %>
 					<% end %>
 					</strong>
-					<span><%= post.category.name %></span>
+					<span> - <%= post.category.name %></span>
 					<% @string = post.content.html_safe %>
-			      	<p class="text-muted"><%= truncate(@string, :length => 180, :omission => "", :escape => false) %></p>
+			      	<p class="text-muted"><%= truncate(@string, separator: /\s/, :length => 180, :omission => "...", :escape => false) %></p>
 			    </div>
 			  </td>
 			
