@@ -10,6 +10,8 @@ class Article < ApplicationRecord
 
 	scope :aktuelt, -> { where(publish: true, :category_id => '5').order(created_at: :desc) }
 
+	scope :omoss, -> { where(publish: true, :category_id => '10') }
+
 	accepts_nested_attributes_for :assets, reject_if: proc { |attributes| attributes[:image].blank? }
 
 	mount_uploader :image, ImageUploader
