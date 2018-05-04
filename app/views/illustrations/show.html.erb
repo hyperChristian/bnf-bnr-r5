@@ -5,7 +5,7 @@
         <div class="row">
           <% @illustrasjon.assets.each do |ill| %>
             <div class="col-xs-6 col-md-3">
-              <%= link_to ill.image.url(:large), :dataLightbox => "hms" do %>
+              <%= link_to ill.image.url(:large), :data-lightbox => "hms" do %>
                 <%= image_tag ill.image.url(:medium), :class => "img-responsive img-illustrasjon" if ill.image? %>  
               <% end %>
             </div>
