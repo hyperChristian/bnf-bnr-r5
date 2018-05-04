@@ -21,7 +21,11 @@
               <a href="#" class="dropdown-toggle bg-hover-color" data-toggle="dropdown">Om Byggenæringens forlag<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <% @articles.omoss.each do |art| %>
-                <li><a href="#" class="bg-hover-color"><%= art.title%></a></li>
+                <li>
+                  <% link_to article_path(art), :class => 'bg-hover-color' do %>
+                    <%= art.title %>
+                  <% end %>
+                </li>       
                 <% end %>
               </ul>
             </li>

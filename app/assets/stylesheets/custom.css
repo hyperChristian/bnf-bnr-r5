@@ -1031,7 +1031,7 @@ border-bottom: 1px solid #ddd;
     text-align: center;
 }
 .ms-list-text {
-    width:400px;
+    /*width:400px;*/
     display: table-cell;
     vertical-align: middle;
     font-size: 14px;
