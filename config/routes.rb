@@ -37,8 +37,14 @@ Rails.application.routes.draw do
 
   end
 
+  resources :digitals do
+
+  end
+
   resources :illustrasjonsarkiv, controller: 'illustrations'
+  resources :digitalpedagogikk, controller: 'digitals'
   resources :bokasnettressurs, controller: 'posts'
+
   resources :posts do
     collection do 
       get :search, :action => 'search_post', :as => 'search_post'

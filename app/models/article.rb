@@ -8,6 +8,8 @@ class Article < ApplicationRecord
 
 	scope :illustrasjon, -> { where(publish: true, :category_id => '8').order(title: :asc) }
 
+	scope :digital, -> { where(publish: true, :category_id => '6').order(title: :asc) }
+
 	scope :aktuelt, -> { where(publish: true, :category_id => '5').order(created_at: :desc) }
 
 	scope :omoss, -> { where(publish: true, :category_id => '10') }
