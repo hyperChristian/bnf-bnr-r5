@@ -70,8 +70,9 @@ hr.arrow-down:after {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   /* cdc - custom */
-  text-transform: uppercase;
+ /* text-transform: uppercase;*/
   font-size: 25px;
+  font-weight: 400;
 }
 h3.headline span {
   padding-bottom: 8px;
