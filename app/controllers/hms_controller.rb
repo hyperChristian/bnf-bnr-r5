@@ -2,13 +2,13 @@ class HmsController < ApplicationController
 
 
   def index
-    @illustrasjoner = Article.illustrasjon
+    @articles = Article.where(:category_id => '7')
     render :layout => 'hms_page'
   end
 
 
   def show
-    @illustrasjon = Article.find(params[:id])
+    @hms = Article.find(params[:id])
     render :layout => 'hms_page'
   end
 

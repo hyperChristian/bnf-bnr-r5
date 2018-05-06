@@ -14,6 +14,8 @@ class Article < ApplicationRecord
 
 	scope :omoss, -> { where(publish: true, :category_id => '10') }
 
+	scope :hms, -> { where(:category_id => '7').first }
+
 	accepts_nested_attributes_for :assets, reject_if: proc { |attributes| attributes[:image].blank? }
 
 	mount_uploader :image, ImageUploader

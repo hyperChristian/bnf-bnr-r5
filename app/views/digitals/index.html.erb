@@ -2,8 +2,9 @@
          
           <div class="col-sm-12">
  
-           
-
+           <% @articles.each do |art| %>
+              <%= art.content.html_safe %>
+           <% end %>
 
           </div>
         
