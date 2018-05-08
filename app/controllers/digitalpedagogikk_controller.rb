@@ -1,4 +1,4 @@
-class digitalpedagogikkController < ApplicationController
+class digitalpedagogikksController < ApplicationController
 
 
   def index
