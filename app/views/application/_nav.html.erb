@@ -20,9 +20,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle bg-hover-color" data-toggle="dropdown">Om Byggenæringens forlag<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <% @articles.omoss.each do |art| %>
+                <% @about.omoss.each do |art| %>
                 <li>
-                  <% link_to article_path(art), :class => 'bg-hover-color' do %>
+                  <%= link_to article_path(art), :class => 'bg-hover-color' do %>
                     <%= art.title %>
                   <% end %>
                 </li>       
@@ -38,7 +38,7 @@
               </ul>
             </li>
  
-            <li class="dropdown">  
+            <li>  
                 <span class="btn btn-md btn-color" style="margin:20px 0 0 20px;"><a href="http://bnf.rm.no/login.aspx?ReturnUrl=%2f" target="_blank" class="netthandel" style="color:#FFFFFF;">Nettbokhandel</a></span>
             </li>
           </ul>

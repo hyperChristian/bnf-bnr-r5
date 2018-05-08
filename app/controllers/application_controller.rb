@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 protected
   def fetch_articles
-    @articles = Article.all
+    @about = Article.all
   end
 
 
