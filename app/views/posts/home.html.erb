@@ -19,7 +19,9 @@
         <%= art.summary %>
         <hr>
         <p></p>
-        <a class="btn btn-md btn-color" href="#">Les mer...</a> 
+          <%=  link_to article_path(art), :class => "btn btn-md btn-color" do %>
+            Les mer...
+          <% end %>
       </div>
     </div>
   </div>

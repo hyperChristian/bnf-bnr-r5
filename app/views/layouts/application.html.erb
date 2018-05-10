@@ -129,15 +129,9 @@
               </div>
             </div>
           </div>
-
         </div> <!-- / .row -->
-
          <!-- Aktuelt -->
-
             <%= yield %>
-          
-        
-
       </div> <!-- / .container -->
 
     </div> <!-- / .wrapper -->
@@ -149,8 +143,7 @@
     ================================================== -->
      <%= javascript_include_tag 'application_bottom', 'data-turbolinks-track' => true %>
      <script type="text/javascript">
-    
-
+      $('.jumbotron.first').css("background-image", "image-url(image-path('slide-1.jpg'))");
      </script>
   </body>
 </html>
