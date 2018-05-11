@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   end 
 
   def show
+    @articles = Article.all
     @article = Article.find(params[:id])
     render :layout => 'articles_page'
   end

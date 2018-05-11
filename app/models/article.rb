@@ -12,6 +12,8 @@ class Article < ApplicationRecord
 
 	scope :aktuelt, -> { where(publish: true, :category_id => '5').order(created_at: :desc) }
 
+	scope :alleaktuelt, -> { where(publish: true, :category_id => '5' ).order(created_at: :desc).limit(5)}
+
 	scope :omoss, -> { where(publish: true, :category_id => '10') }
 
 	scope :hms, -> { where(:category_id => '7').first }
