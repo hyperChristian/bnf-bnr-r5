@@ -4,17 +4,25 @@
     <div class="col-sm-9">
       <h3><%= @article.title%></h3>
       <p><strong><%= @article.summary %></strong></p>
-      <%= image_tag @article.image.url(), :class => "img-responsive" if @article.image? %>  
+      <%= image_tag @article.image.url(:large), :class => "img-responsive" if @article.image? %>  
       <p><%= @article.imagetext if @article.imagetext?%></p>
       <p><%= @article.content.html_safe %></p>
+
+      <% @article.assets.each do |asset| %>
+      <div>
+        <p><%= image_tag asset.image.url(:large), :class => "img-responsive" if asset.image? %>  </p>
+        <p><%= asset.imagetext %></p>
+      </div>
+      <% end %>
     </div>
     <div class="col-sm-3">
-      <h4>Siste</h4>
+      <h4 class="primary-font">Flere aktuelt</h4>
       <% @articles.alleaktuelt.each do |art| %>
         <%=  link_to article_path(art) do %>
           <h5><%= art.title %></h5>
         <% end %>
       <% end %>
+      <h4 class="primary-font">Følg oss</h4>
     </div>
   </div>
 </div>
