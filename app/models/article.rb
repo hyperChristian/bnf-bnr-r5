@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   	belongs_to :category
   	belongs_to :moderator
-  	has_many :assets
+  	has_many :assets, dependent: :destroy
 	validates :title, presence: true
 
 	scope :published, -> { where(publish: true, :category_id => '5').order(created_at: :asc).limit(2) }
