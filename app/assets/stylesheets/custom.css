@@ -1064,12 +1064,12 @@ border-bottom: 1px solid #ddd;
   margin-bottom: 30px;
   margin-top: 30px;
 }
-.portfolio__nav {
+.portfolio_nav {
   margin-bottom: 20px;
 }
 .portfolio-item {
   margin-bottom: 20px;
-  max-height: 380px;
+  max-height: 480px;
   min-height: 380px;
   overflow: hidden;
 }
@@ -1162,7 +1162,7 @@ border-bottom: 1px solid #ddd;
   margin-bottom: 30px;
   margin-top: 30px;
 }
-.illustrasjon__nav {
+.illustrasjon_nav {
   margin-bottom: 20px;
 }
 .illustrasjon-item {
