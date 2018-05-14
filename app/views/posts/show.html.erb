@@ -48,7 +48,7 @@
 				                    <div id="panel-attachement" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				                        <div class="panel-body text-gray" style="padding:20px 20px;">
 											<% @post.documents.each do |d| %>
-												<%= link_to d.title, d.document.url, :target => 'blank' %>
+												<p><%= link_to d.title, d.document.url, :target => 'blank' %></p>
 											<% end %>
 				                        </div>
 				                    </div>
@@ -126,7 +126,7 @@
 						                    <div id="panel-attachement-<%= post.id %>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 						                        <div class="panel-body text-gray" style="padding:20px 20px;">
 													<% post.documents.each do |d| %>
-														<%= link_to d.title, d.document.url, :target => 'blank' %>
+														<p><%= link_to d.title, d.document.url, :target => 'blank' %></p>
 													<% end %>
 						                        </div>
 						                    </div>
