@@ -73,7 +73,7 @@ class Admin::PostsController < Admin::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:parent_id, :id, :title, :content, :publish, :image, :category_id, :ancestry, :showpost, :metatags,
+    params.require(:post).permit(:parent_id, :id, :title, :content, :publish, :image, :category_id, :ancestry, :showpost, :metatags, :sortorder,
                                   tag_ids: [], 
                                   sections_attributes: [:id, :title, :content, :post_id, :sectiontype, :_destroy],
                                   galleries_attributes: [:id, :title, :description],

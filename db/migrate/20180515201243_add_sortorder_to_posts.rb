@@ -1,0 +1,5 @@
+class AddSortorderToPosts < ActiveRecord::Migration[5.1]
+  def change
+    add_column :posts, :sortorder, :integer
+  end
+end
