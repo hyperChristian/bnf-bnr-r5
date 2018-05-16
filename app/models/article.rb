@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   	has_many :assets, dependent: :destroy
 	validates :title, presence: true
 
-	scope :published, -> { where(publish: true, :category_id => '5').order(created_at: :asc).limit(2) }
+	scope :published, -> { where(publish: true, :category_id => '5').order(created_at: :desc).limit(2) }
 
 	scope :illustrasjon, -> { where(publish: true, :category_id => '8').order(title: :asc) }
 

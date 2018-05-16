@@ -7,7 +7,9 @@
       <%= image_tag @article.image.url(:large), :class => "img-responsive" if @article.image? %>  
       <p><%= @article.imagetext if @article.imagetext?%></p>
       <p><%= @article.content.html_safe %></p>
-
+      <p>
+        <i class="zmdi zmdi-attachment-alt"></i> <%= link_to @article.document, @article.document.url, :target => 'blank' if @article.document? %> 
+      </p>
       <% @article.assets.each do |asset| %>
       <div>
         <p><%= image_tag asset.image.url(:large), :class => "img-responsive" if asset.image? %>  </p>

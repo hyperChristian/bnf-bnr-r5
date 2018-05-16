@@ -12,7 +12,7 @@ module Admin::AncestryHelper
       :li_class             => [],
       :li_class_top         => [],
       :li_class_children    => [],
-      :sort_by              => ['id']
+      :sort_by              => ['sortorder']
     }.merge(options)
 
     # setup any custom list styles you want to use here. An example is excluded
@@ -76,7 +76,7 @@ module Admin::AncestryHelper
       :li_class             => [],
       :li_class_top         => [],
       :li_class_children    => [],
-      :sort_by              => ['id']
+      :sort_by              => ['sortorder']
     }.merge(options)
 
     # setup any custom list styles you want to use here. An example is excluded
