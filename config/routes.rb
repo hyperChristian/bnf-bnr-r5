@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resources :illustrasjonsarkiv, controller: 'illustrations'
   resources :digitalpedagogikk, controller: 'digitals'
   resources :bokasnettressurs, controller: 'posts'
+  resources :aktuelt, controller: 'articles'
+  resources :omoss, controller: 'articles'
 
   resources :posts do
     collection do 

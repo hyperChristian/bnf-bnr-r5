@@ -20,7 +20,7 @@
     <div class="col-sm-3">
       <h4 class="primary-font">Flere aktuelt</h4>
       <% @articles.alleaktuelt.each do |art| %>
-        <%=  link_to article_path(art) do %>
+        <%=  link_to aktuelt_path(art) do %>
           <h5><%= art.title %></h5>
         <% end %>
       <% end %>

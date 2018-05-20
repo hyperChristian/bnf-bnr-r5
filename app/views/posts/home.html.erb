@@ -12,14 +12,14 @@
       <%= image_tag art.image_url(:medium), :class => 'media-object' if art.image? %>
       <div class="recent-article-desc">
         <h3 class="primary-font">
-          <%=  link_to article_path(art) do %>
+          <%=  link_to aktuelt_path(art) do %>
             <%= art.title %>
           <% end %>
         </h3>
         <%= art.summary %>
         <hr>
         <p></p>
-          <%=  link_to article_path(art), :class => "btn btn-md btn-color" do %>
+          <%=  link_to aktuelt_path(art), :class => "btn btn-md btn-color" do %>
             Les mer...
           <% end %>
       </div>

@@ -22,7 +22,7 @@
               <ul class="dropdown-menu">
                 <% @about.omoss.each do |art| %>
                 <li>
-                  <%= link_to article_path(art), :class => 'bg-hover-color' do %>
+                  <%= link_to omoss_path(art), :class => 'bg-hover-color' do %>
                     <%= art.title %>
                   <% end %>
                 </li>       
