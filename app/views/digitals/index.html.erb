@@ -2,7 +2,7 @@
          
           <div class="col-sm-12">
            <% @articles.each do |art| %>
-           	  <%= image_tag art.image.url(), :class => "img-responsive" if art.image? %>  	
+           	  	
               <p><%= art.content.html_safe %></p>
            <% end %>
 

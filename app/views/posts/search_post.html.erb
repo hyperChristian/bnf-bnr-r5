@@ -4,7 +4,7 @@
 <div class="row mt-5">
 
 	<div class="col-sm-12">
-		<h4 class="primary-font">Søkeresultater: <i><%=params[:search] %></i></h4>
+		<h4 class="primary-font"><%= @posts.count%> emner funnet for <i><%=params[:search] %></i></h4>
 		
 		<% if @posts.present? %>
 		<table class="table table-responsive">
