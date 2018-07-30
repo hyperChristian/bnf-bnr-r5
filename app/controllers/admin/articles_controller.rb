@@ -4,7 +4,8 @@ class Admin::ArticlesController < Admin::ApplicationController
   # GET /admin/articles
   # GET /admin/articles.json
   def index
-    @articles = Article.where(:publish => :true)
+   # @articles = Article.where(:publish => :true)
+     @articles = Article.all
 
   end
 
