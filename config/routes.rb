@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   resources :bokasnettressurs, controller: 'posts'
   resources :aktuelt, controller: 'articles'
   resources :omoss, controller: 'articles'
+  resources :personvern, controller: 'privates'
 
   resources :posts do
     collection do 
