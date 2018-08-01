@@ -17,5 +17,6 @@
 //= require scrolltopcontrol
 //= require jquery.sticky
 //= require custom
+//= require js.cookie
 //= require turbolinks
 

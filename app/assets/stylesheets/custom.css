@@ -51,6 +51,56 @@ h6,
   padding-bottom: 0px; /* footer height + margin */
 }
 
+/* ===== Cookie-bar ===== */
+/* ===========
+   Cookies bar
+   =========== */
+ 
+/* Common */
+#cookies-bar {
+  border: 2px solid #000;
+  border-bottom: none;
+  background-color: #ffffff;
+ 
+  a {
+    color: #df9038;
+  }
+}
+ 
+/* Collapsed version */
+@media (max-width: 767px) {
+  .right-part {
+    text-align: center;
+    padding-bottom: 5px;
+ 
+    a {
+      width: 80%;
+    }
+  }
+}
+ 
+/* Large version */
+@media (min-width: 768px) {
+  #cookies-bar {
+    width: 80%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 5px;
+ 
+    .left-part {
+    
+    
+    }
+ 
+    .right-part {
+     
+      padding-top: 2px;
+      text-align: center;
+    }
+  }
+}
+/* ==== ==== */
+
 /* ===== Mini Navbar ===== */
 
 .mini-navbar {

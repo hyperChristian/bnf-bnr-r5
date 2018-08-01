@@ -23,7 +23,6 @@
 
   <body class="body-green">
 
- 
   <%= render 'nav', collection: @articles %>
 
     <!-- Wrapper -->
@@ -138,7 +137,9 @@
 
     <!-- Footer -->
     <%= render 'footer' %>
-
+  <% if !cookies[:allow_cookies] %>
+    <%= render 'cookies_bar' %>
+  <% end %>
     <!-- JavaScript
     ================================================== -->
      <%= javascript_include_tag 'application_bottom', 'data-turbolinks-track' => true %>
