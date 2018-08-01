@@ -105,34 +105,9 @@ $('.style-toggle-body .colors > .red').on('click', function() {
   return false;
 });
 
-/* ===== Our Services ===== */
+/* ===== Cookies ===== */
 
-$('.services-item').hover (function() {
-  $(this).children("i").toggleClass("fa-rotate-90");
-  return false;
-});
 
-/* ===== Sign Up popovers ===== */
-
-$(function(){
-  $('#name').popover();
-});
-
-$(function(){
-  $('#username').popover();
-});
-
-$(function(){
-  $('#email').popover();
-});
-
-$(function(){
-  $('#password').popover();
-});
-
-$(function(){
-  $('#repeat-password').popover();
-});
 
 $(function() {
   var allowCookies, cookiesAllowed, deleteCookies, ga, ready;
